@@ -1,0 +1,39 @@
+<br><br>
+<table style="border: 1px solid #7f8285;margin-left: auto;margin-right: auto; width: 50%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <tr style="border: 1px solid #7f8285;background-color:#f7f7f7;"><th><h1 style="font-weight: 100;">IIT Bombay Moodle</h1></th></tr>
+    <tr>
+        <td  style="padding-left: 10%; padding-right: 10%;">
+            <br><br>
+            
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="&nbsp;Username" width="100" style="font-size: 15px; line-height: 2.2em;" size="28">&nbsp;&nbsp;&nbsp;&nbsp;Cookies must be enabled in your browser <br><br>
+                <input type="password" name="password" placeholder="&nbsp;Password"  style="font-size: 15px; line-height: 2.2em;" size="28"><br><br>
+                <input type="checkbox">Remember username<br><br>
+                <input type="submit" value="Log in" style="background-color: #1a74c7; border: none; width:250px; height: 36px; color: white; text-align: center;font-size: 15px;">
+            </form>
+           
+            <a href="{% url 'password_reset' %}">Forgot password?</a>
+            <a href="{% url 'signup' %}">Signup?</a>
+        </td>
+    </tr>
+</table>
+
+<br><br>
+<div style="border: 1px solid #7f8285; margin-left: 25%; margin-right: 25%;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <h1 style="font-weight: 100;">&nbsp;&nbsp;Is this your first time here?</h1>
+    <ul>
+        <li><h2 style="color:#319831;font-weight: 400;">Signup <a style="color: blue;" href="{% url 'signup' %}">here</a></h2>
+        <li><h2 style="color:#319831;font-weight: 400;">Help documents are available <a style="color: blue;" href="https://drive.google.com/drive/folders/1U6Z1m-9cR-fP9KWMIqjAWZdOXtJ_lNCf">here.</a></h2>
+        <!-- <li>Course enrollments are synced periodically. Please wait for some time for your course to appear on Moodle<br><br> -->
+        <li>To access older courses, please visit <a href="http://oldmoodle.asc.iitb.ac.in/">this</a> link. (requires VPN for outside IITB connection)<br><br>
+        <li><b>For all Moodle related issues,</b> kindly send an e-mail to <b>moodle.help</b> at <b>iitb.ac.in</b> with roll number / employee code.<br><br>
+    </ul>
+</div>
+
+<br><br>
+<footer style="position:relative; margin-left:-2.4vw;margin-bottom:-2.4vh; width: 86.1vw; background-color:#343a40; color: white; padding-left: 15%;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    ">
+    <br>You are not logged in.<br>
+    <a href="https://moodle.iitb.ac.in/" style="color: white;">Home</a><br>
+    <a href="https://download.moodle.org/mobile?version=2021051701.01&lang=en&iosappid=633359593&androidappid=com.moodle.moodlemobile" style="color: white;">Get the mobile app</a><br><br>
+</footer>

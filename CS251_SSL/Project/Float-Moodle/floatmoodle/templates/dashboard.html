@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <ul>
+        <h4>courses</h4>
+        {% for course in courses%}
+        <li>
+            <form action={% url 'courses' course.id %} style="display:inline-block;">
+                <input type="submit" style="background-color: white; border-color: #0066ff;color: #0066ff; padding: 12px 25px; font-size:16px; border-radius:6px" value={{course}}>
+            </form>
+        </li>
+        <br>
+        {%endfor%}
+    </ul>
+    <ul>
+        <h4>users</h4>
+        {% for user in users%}
+        <li>
+            <form action="{% url 'profile' user.id %}" style="display:inline-block;">
+                <input type="submit" style="background-color: white; border-color: #ff3c00;color: #00ff2a; padding: 12px 25px; font-size:16px; border-radius:6px" value={{user}}>
+            </form>
+        </li>
+        <br>
+        {%endfor%}
+    </ul>
+    <ul>
+        <h4>assignment</h4>
+        {% for assignment in assignments%}
+        <li>
+            <form action="{% url 'assignment_submission' cid=assignment.course.id aid=assignment.id %}" style="display:inline-block;">
+                <input type="submit" style="background-color: white; border-color: #ff3c00;color: #00ff2a; padding: 12px 25px; font-size:16px; border-radius:6px" value={{assignment}}>
+            </form>
+        </li>
+        <br>
+        {%endfor%}
+    </ul>
+    <a href="{% url 'logout' %}">logout</a>
+    
+    
+    
+<!-- -------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+    <a href="{% url 'course_enroll' %}">Enroll</a>
+    <a href="{% url 'courseCreation' %}">Create course?</a>
+</body>
+</html>

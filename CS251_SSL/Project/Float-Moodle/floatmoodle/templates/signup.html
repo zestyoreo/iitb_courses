@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin-left:20%; margin-right:20%;font-size: 16px;font-family:verdana"></div>
+<h1>Signup with Moodle</h1>
+<form class="form-group" method="POST">
+	{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="btn btn-success" style="background-color: #0066ff; border: none;color: white; padding: 12px 25px; font-size:16px; border-radius:6px">Signup</button><br>
+</form>
+</div>
+<div>
+	{% for message in messages %}
+	<h3> {{message}}</h3>
+	{% endfor %}
+</div>
+</body>
+</html>

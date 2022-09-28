@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+    {{assignment.name}}
+    <br>
+    {{assignment.description}}
+    <br>
+    {{assignment.deadline}}
+    <br>
+    {% if iFF %}
+        You have received the following feedback:
+        <ul>
+        {% for feedback in feedbacks %}
+        <li>
+            Feedback : {{feedback.feedback}} <br>
+            Marks : {{feedback.marks}}
+        </li>
+
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% if ifsubmit %}
+        <form class="form-group" action="." method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                {{ form.as_p }}
+        
+                <button type="submit"  class="btn btn-success" style="background-color: #00ff37; border: none;color: rgb(236, 37, 37); padding: 12px 25px; font-size:16px; border-radius:6px">Submit</button><br>
+        </form>
+    {% else %}
+
+    You can no longer make a submission for this assignment.
+
+    {% endif %}
+{% endblock %}

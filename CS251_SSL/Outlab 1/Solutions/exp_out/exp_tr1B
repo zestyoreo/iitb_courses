@@ -1,0 +1,49 @@
+.
+|-- download.sh
+|-- evaluate.sh
+|-- mock_grading
+|   |-- inputs
+|   |   |-- earth.in
+|   |   |-- jupiter.in
+|   |   |-- mars.in
+|   |   |-- mercury.in
+|   |   |-- neptune.in
+|   |   |-- pluto.in
+|   |   |-- saturn.in
+|   |   |-- sun.in
+|   |   |-- uranus.in
+|   |   `-- venus.in
+|   |-- outputs
+|   |   |-- earth.out
+|   |   |-- jupiter.out
+|   |   |-- mars.out
+|   |   |-- mercury.out
+|   |   |-- neptune.out
+|   |   |-- pluto.out
+|   |   |-- saturn.out
+|   |   |-- sun.out
+|   |   |-- uranus.out
+|   |   `-- venus.out
+|   |-- roll_list
+|   `-- submissions
+|       |-- 21005001.cpp
+|       |-- 21005001.h
+|       |-- 21005002.cpp
+|       |-- 21005002.h
+|       |-- 21005003.cpp
+|       |-- 21005003.h
+|       |-- 21005003cutedog.JPG
+|       |-- 21005004.cpp
+|       |-- 21005004.h
+|       |-- 21005004timeline.pdf
+|       |-- 21005005.cpp
+|       |-- 21005005.h
+|       |-- 21005006.cpp
+|       |-- 21005006.h
+|       |-- 21005006random.pdf
+|       |-- 21005007.cpp
+|       |-- 21005007.h
+|       `-- 21005007scheme.pdf
+`-- organise.sh
+
+4 directories, 42 files

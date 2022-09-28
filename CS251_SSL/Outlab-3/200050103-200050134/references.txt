@@ -1,0 +1,8 @@
+https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.tplquad.html
+https://www.geeksforgeeks.org/command-line-arguments-in-python/
+https://www.w3resource.com/python-exercises/numpy/python-numpy-exercise-94.php
+https://numpy.org/doc/stable/
+https://docs.python.org/3/howto/argparse.html
+https://www.geeksforgeeks.org/file-handling-python/
+https://docs.python.org/3/howto/sorting.html
+https://stackoverflow.com/questions/3207219/how-do-i-list-all-files-of-a-directory

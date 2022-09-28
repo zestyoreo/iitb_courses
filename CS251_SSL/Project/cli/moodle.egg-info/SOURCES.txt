@@ -1,0 +1,9 @@
+setup.py
+moodle/__init__.py
+moodle/cli.py
+moodle.egg-info/PKG-INFO
+moodle.egg-info/SOURCES.txt
+moodle.egg-info/dependency_links.txt
+moodle.egg-info/entry_points.txt
+moodle.egg-info/requires.txt
+moodle.egg-info/top_level.txt

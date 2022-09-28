@@ -1,0 +1,22 @@
+BFS(G,s)
+ for each vertex u ∈ V[G]-{s}
+    color[u] ← white
+    d[u] ← ∞
+    π[u] ← NIL
+ color[s] ← gray
+ d[s] ← 0
+ π[u] ← NIL
+ Q ← {s}
+ while Q ≠ ∅ do
+    u ← head[Q]
+    for each v ∈ Adj[u] do
+       if color[v] = white then
+          color[v] ← gray
+          d[v] ← d[u] + 1
+          π[v] ← u
+          for each x ∈ Adj[v] and d[x]=d[v]-1 do
+            if egde[x,v]>edge[v,π[v]] then
+                π[v] ← x
+          Enqueue(Q,v)
+    Dequeue(Q)
+    color[u] ← black

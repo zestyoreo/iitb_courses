@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    {{assigment.name}}
+    <br>
+    {{assignment.description}}
+    <br>
+    {{assignment.deadline}}
+    <br>
+    The following submissions have been made so far : 
+    <br>
+    <ul>
+    {% for s in submissions %}
+    
+        <li>
+            <a color="green" href={% url 'feedbackSubmission' cid=s.forAssign.course.id aid=s.forAssign.id sid=s.id %}>{{s.fromStudent}}</a>
+        </li>
+    
+    
+    
+    {%endfor%}
+</ul>
+{% endblock %}

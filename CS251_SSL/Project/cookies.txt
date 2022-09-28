@@ -1,0 +1,22 @@
+curl -X GET http://127.0.0.1:8000/api/assignment/3/2/ -H 'Authorization: Token 18c5db17b63e7422b214900ce1bcbfec8e172e34'
+
+curl -X GET http://127.0.0.1:8000/api/submission/1/2/ -H 'Authorization: Token 18c5db17b63e7422b214900ce1bcbfec8e172e34'
+
+curl -X GET http://127.0.0.1:8000/api/feedback/1/ -H 'Authorization: Token 18c5db17b63e7422b214900ce1bcbfec8e172e34'
+
+curl -X POST http://127.0.0.1:8000/api-token-auth/ -d "username=zz&password=Balan2003" 
+
+curl -H "Content-Disposition: attachment;" \
+-H 'Authorization: Token 18c5db17b63e7422b214900ce1bcbfec8e172e34' \
+-X POST \
+-F "submission=@/Users/balan/Desktop/login.sh" \
+ http://127.0.0.1:8000/api/submission/3/2/
+
+moodle signin account -s
+
+
+
+
+
+
+

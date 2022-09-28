@@ -1,0 +1,73 @@
+.
+|-- download.sh
+|-- evaluate.sh
+|-- mock_grading
+|   |-- inputs
+|   |   |-- 1.in
+|   |   |-- 10.in
+|   |   |-- 2.in
+|   |   |-- 3.in
+|   |   |-- 4.in
+|   |   |-- 5.in
+|   |   |-- 6.in
+|   |   |-- 7.in
+|   |   |-- 8.in
+|   |   `-- 9.in
+|   |-- outputs
+|   |   |-- 1.out
+|   |   |-- 10.out
+|   |   |-- 2.out
+|   |   |-- 3.out
+|   |   |-- 4.out
+|   |   |-- 5.out
+|   |   |-- 6.out
+|   |   |-- 7.out
+|   |   |-- 8.out
+|   |   `-- 9.out
+|   |-- roll_list
+|   `-- submissions
+|       |-- 21005001.cpp
+|       |-- 21005001.h
+|       |-- 21005002.cpp
+|       |-- 21005002.h
+|       |-- 21005003.cpp
+|       |-- 21005003.h
+|       |-- 21005003cutedog.JPG
+|       |-- 21005004.cpp
+|       |-- 21005004.h
+|       |-- 21005004timeline.pdf
+|       |-- 21005005.cpp
+|       |-- 21005005.h
+|       |-- 21005006.cpp
+|       |-- 21005006.h
+|       |-- 21005007.cpp
+|       |-- 21005007.h
+|       `-- 21005007scheme.pdf
+|-- organise.sh
+`-- organised
+    |-- 21005001
+    |   |-- 21005001.cpp -> ../../mock_grading/submissions/21005001.cpp
+    |   `-- 21005001.h -> ../../mock_grading/submissions/21005001.h
+    |-- 21005002
+    |   |-- 21005002.cpp -> ../../mock_grading/submissions/21005002.cpp
+    |   `-- 21005002.h -> ../../mock_grading/submissions/21005002.h
+    |-- 21005003
+    |   |-- 21005003.cpp -> ../../mock_grading/submissions/21005003.cpp
+    |   |-- 21005003.h -> ../../mock_grading/submissions/21005003.h
+    |   `-- 21005003cutedog.JPG -> ../../mock_grading/submissions/21005003cutedog.JPG
+    |-- 21005004
+    |   |-- 21005004.cpp -> ../../mock_grading/submissions/21005004.cpp
+    |   |-- 21005004.h -> ../../mock_grading/submissions/21005004.h
+    |   `-- 21005004timeline.pdf -> ../../mock_grading/submissions/21005004timeline.pdf
+    |-- 21005005
+    |   |-- 21005005.cpp -> ../../mock_grading/submissions/21005005.cpp
+    |   `-- 21005005.h -> ../../mock_grading/submissions/21005005.h
+    |-- 21005006
+    |   |-- 21005006.cpp -> ../../mock_grading/submissions/21005006.cpp
+    |   `-- 21005006.h -> ../../mock_grading/submissions/21005006.h
+    `-- 21005007
+        |-- 21005007.cpp -> ../../mock_grading/submissions/21005007.cpp
+        |-- 21005007.h -> ../../mock_grading/submissions/21005007.h
+        `-- 21005007scheme.pdf -> ../../mock_grading/submissions/21005007scheme.pdf
+
+12 directories, 58 files

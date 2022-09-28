@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+Course Name: {{course.name}}
+    <br>
+    Course Description:<br>
+    <p style="padding: 10px; border: 2px solid red;">{{course.description}}</p>
+    <br>
+    Course Instructor:{{course.instructor}}
+    <br> 
+    {% if create_assignment_access %}
+    <a href={% url 'assignmentCreation' cid=course.id %}>Create assi?</a>
+    {% endif %} 
+    {%for assignment in assignments%}
+    <ul>
+        <li>
+            <a href={% url 'assignment_submission' cid=assignment.course.id aid=assignment.id %}>{{assignment}}</a>
+        </li>
+    </ul>    
+    {%endfor%}
+
+{% endblock %}

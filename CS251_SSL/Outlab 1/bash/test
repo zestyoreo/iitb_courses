@@ -1,0 +1,4 @@
+#!/bin/bash
+diff a.txt b.txt
+$outy = $?
+echo $

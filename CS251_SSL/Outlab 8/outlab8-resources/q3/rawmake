@@ -1,0 +1,5 @@
+helloworld: helloworld.cpp
+	g++ helloworld.cpp -o helloworld
+
+usespthread: usespthread.cpp
+	g++ usespthread.cpp -o usespthread -pthread
