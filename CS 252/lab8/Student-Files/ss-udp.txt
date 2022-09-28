@@ -1,0 +1,27 @@
+State    Recv-Q   Send-Q          Local Address:Port       Peer Address:Port    Process                                                                         
+ESTAB    0        0               192.168.1.121:40603      10.204.1.112:33459    users:(("traceroute",pid=28894,fd=13))                                         
+UNCONN   0        0               127.0.0.53%lo:domain          0.0.0.0:*                                                                                       
+ESTAB    0        0          192.168.1.121%wlo1:bootpc      192.168.1.1:bootps                                                                                  
+ESTAB    0        0               192.168.1.121:33085      10.204.1.112:33461    users:(("traceroute",pid=28894,fd=3))                                          
+UNCONN   0        0                     0.0.0.0:37395           0.0.0.0:*        users:(("firefox",pid=27191,fd=111))                                           
+UNCONN   0        0                     0.0.0.0:631             0.0.0.0:*                                                                                       
+ESTAB    0        0               192.168.1.121:58459      10.204.1.112:33456    users:(("traceroute",pid=28894,fd=10))                                         
+UNCONN   0        0                 224.0.0.251:mdns            0.0.0.0:*        users:(("chrome",pid=24401,fd=177))                                            
+UNCONN   0        0                     0.0.0.0:mdns            0.0.0.0:*                                                                                       
+ESTAB    0        0               192.168.1.121:42815      10.204.1.112:33450    users:(("traceroute",pid=28894,fd=4))                                          
+ESTAB    0        0               192.168.1.121:46968      10.204.1.112:33457    users:(("traceroute",pid=28894,fd=11))                                         
+ESTAB    0        0               192.168.1.121:38946      10.204.1.112:33452    users:(("traceroute",pid=28894,fd=6))                                          
+ESTAB    0        0               192.168.1.121:55470      10.204.1.112:33455    users:(("traceroute",pid=28894,fd=9))                                          
+UNCONN   0        0                     0.0.0.0:47309           0.0.0.0:*                                                                                       
+ESTAB    0        0               192.168.1.121:55578      10.204.1.112:33458    users:(("traceroute",pid=28894,fd=12))                                         
+ESTAB    0        0               192.168.1.121:60032      10.204.1.112:33462    users:(("traceroute",pid=28894,fd=15))                                         
+ESTAB    0        0               192.168.1.121:55945      10.204.1.112:33449    users:(("traceroute",pid=28894,fd=18))                                         
+ESTAB    0        0               192.168.1.121:43688      10.204.1.112:33453    users:(("traceroute",pid=28894,fd=7))                                          
+ESTAB    0        0               192.168.1.121:48180      10.204.1.112:33460    users:(("traceroute",pid=28894,fd=14))                                         
+ESTAB    0        0               192.168.1.121:44192      10.204.1.112:33454    users:(("traceroute",pid=28894,fd=8))                                          
+ESTAB    0        0               192.168.1.121:48357      10.204.1.112:33451    users:(("traceroute",pid=28894,fd=5))                                          
+ESTAB    0        0               192.168.1.121:52738      10.204.1.112:33463    users:(("traceroute",pid=28894,fd=16))                                         
+ESTAB    0        0               192.168.1.121:48679      10.204.1.112:33464    users:(("traceroute",pid=28894,fd=17))                                         
+UNCONN   0        0                        [::]:mdns               [::]:*                                                                                       
+UNCONN   0        0                        [::]:59372              [::]:*                                                                                       
+UNCONN   0        0                           *:39767                 *:*        users:(("teams",pid=10818,fd=68))                                              

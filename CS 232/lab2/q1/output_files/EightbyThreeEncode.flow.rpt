@@ -1,0 +1,115 @@
+Flow report for EightbyThreeEncode
+Sat Jan 22 16:46:03 2022
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------+
+; Flow Summary                                                        ;
++-----------------------+---------------------------------------------+
+; Flow Status           ; Successful - Sat Jan 22 16:46:03 2022       ;
+; Quartus Prime Version ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name         ; EightbyThreeEncode                          ;
+; Top-level Entity Name ; EightbyThreeEncode                          ;
+; Family                ; MAX V                                       ;
+; Total logic elements  ; 5                                           ;
+; Total pins            ; 12                                          ;
+; Total virtual pins    ; 0                                           ;
+; UFM blocks            ; 0 / 1 ( 0 % )                               ;
++-----------------------+---------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 01/22/2022 16:45:35 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; EightbyThreeEncode  ;
++-------------------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                         ;
++--------------------------------------+---------------------------------+---------------+-------------+-----------------------------------+
+; Assignment Name                      ; Value                           ; Default Value ; Entity Name ; Section Id                        ;
++--------------------------------------+---------------------------------+---------------+-------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID                ; 123534908478109.164285013527337 ; --            ; --          ; --                                ;
+; EDA_DESIGN_INSTANCE_NAME             ; encoder1                        ; --            ; --          ; test.vhd                          ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                             ; --            ; --          ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                             ; --            ; --          ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                             ; --            ; --          ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                             ; --            ; --          ; eda_board_design_symbol           ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; test.vhd                        ; --            ; --          ; eda_simulation                    ;
+; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                     ; --            ; --          ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)       ; <None>        ; --          ; --                                ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                 ; --            ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_FILE                  ; test.vhd                        ; --            ; --          ; test.vhd                          ;
+; EDA_TEST_BENCH_MODULE_NAME           ; test                            ; --            ; --          ; test.vhd                          ;
+; EDA_TEST_BENCH_NAME                  ; test.vhd                        ; --            ; --          ; eda_simulation                    ;
+; EDA_TIME_SCALE                       ; 1 ps                            ; --            ; --          ; eda_simulation                    ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                    ; --            ; --          ; --                                ;
++--------------------------------------+---------------------------------+---------------+-------------+-----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:29     ; 1.0                     ; 425 MB              ; 00:00:46                           ;
+; Total                ; 00:00:29     ; --                      ; --                  ; 00:00:46                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                             ;
++----------------------+-----------------------+----------------+------------+----------------+
+; Module Name          ; Machine Hostname      ; OS Name        ; OS Version ; Processor type ;
++----------------------+-----------------------+----------------+------------+----------------+
+; Analysis & Synthesis ; zestyoreo-Lenovo-G550 ; Ubuntu 18.04.6 ; 18         ; x86_64         ;
++----------------------+-----------------------+----------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off EightbyThreeEncode -c EightbyThreeEncode
+
+
+

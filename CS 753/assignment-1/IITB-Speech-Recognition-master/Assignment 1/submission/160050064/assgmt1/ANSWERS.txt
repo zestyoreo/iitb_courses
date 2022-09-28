@@ -1,0 +1,9 @@
+-------------------
+    [3.5] BONUS
+-------------------
+
+    -   The heuristic works poorly specifically from the reason that not always a single letter maps to a single phone. Sometimes one/more letters may correspond to one/more phones. In such scenarios, every arc's output label may not correspond to the pronunciation of it's input label.
+
+    -   Also, for getting pronunciations of unknown words, we consider all possible splits and get pronunciations of prefixes and suffixes. Clearly, a lot of information aobut pronunciations also resides as *substrings* themselves and not just as prefix/suffix.
+
+    -   One strategy would be to consider all substrings to search for the best pronunciation instead of just the prefixes and suffixes. For that, we could allow the WFST to start and end from any state.

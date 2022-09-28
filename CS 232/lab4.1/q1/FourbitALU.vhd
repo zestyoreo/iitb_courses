@@ -1,0 +1,183 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity FourbitALU is
+	port ( 
+		a, b: in std_logic_vector (3 downto 0); 
+		sel: in std_logic_vector (2 downto 0);
+		result: out std_logic_vector (7 downto 0)
+	);
+	end entity;
+
+architecture FourbitALU_arc of FourbitALU is
+
+	signal cout1,cout2: std_logic;
+	signal comp: std_logic_vector (2 downto 0);
+	signal b_dash,sum,diff,BNAND,BNOR,BXOR,BXNOR: std_logic_vector (3 downto 0);
+	signal result_0,result_1,result_2,result_3,result_4,result_5,result_6,result_7: std_logic_vector (7 downto 0);
+	
+	component EightOneMux
+		port(
+			i0,i1,i2,i3,i4,i5,i6,i7: in std_logic_vector (7 downto 0); 
+			sel: in std_logic_vector (2 downto 0);
+			o: out std_logic_vector (7 downto 0)
+		);
+	end component;
+
+	component FourbitCarLookAheadAdd
+		port ( 
+			a, b : in std_logic_vector (3 downto 0); 
+			cin: in std_logic;
+			sum : out std_logic_vector (3 downto 0); 
+			cout: out std_logic
+		);
+	end component;
+
+	component Multiplier
+		port ( 
+			a, b : in std_logic_vector (3 downto 0); 
+			result: out std_logic_vector (7 downto 0)
+		);
+	end component;
+
+	component Comparator
+		port ( 
+			a, b: in std_logic_vector (3 downto 0); 
+			result: out std_logic_vector (2 downto 0)
+		);
+	end component;
+
+	component BitwiseNAND
+		port ( 
+			a, b: in std_logic_vector (3 downto 0);
+			c: out std_logic_vector (3 downto 0)
+		);
+	end component;
+
+	component BitwiseNOR
+		port ( 
+			a, b: in std_logic_vector (3 downto 0);
+			c: out std_logic_vector (3 downto 0)
+		);
+	end component;
+
+	component BitwiseXOR
+		port ( 
+			a, b: in std_logic_vector (3 downto 0);
+			c: out std_logic_vector (3 downto 0)
+		);
+	end component;
+
+	component BitwiseXNOR
+		port ( 
+			a, b: in std_logic_vector (3 downto 0);
+			c: out std_logic_vector (3 downto 0)
+		);
+	end component;
+	
+begin
+	--b_dash(i)<= b(i) xor sel(0); for subtraction
+	b_dash(0)<= (sel(0) and not (b(0))) or (not (sel(0)) and b(0));
+	b_dash(1)<= (sel(0) and not (b(1))) or (not (sel(0)) and b(1));
+    b_dash(2)<= (sel(0) and not (b(2))) or (not (sel(0)) and b(2));
+    b_dash(3)<= (sel(0) and not (b(3))) or (not (sel(0)) and b(3));
+
+	-- Carry Look Ahead Adder
+	--sel(0) is 0 in this case
+	FBCLA1: FourbitCarLookAheadAdd
+		port map(a=>a,b=>b,cin=>sel(0),sum=>sum,cout=>cout1);
+	result_0(0)<=sum(0);
+	result_0(1)<=sum(1);
+	result_0(2)<=sum(2);
+	result_0(3)<=sum(3);
+	result_0(4)<=cout1;
+	result_0(5)<='-';
+	result_0(6)<='-';
+	result_0(7)<='-';
+
+	-- Carry Look Ahead Adder-Subtractor
+	--sel(0) is 1 in this case
+	FBCLA2: FourbitCarLookAheadAdd
+		port map(a=>a,b=>b_dash,cin=>sel(0),sum=>diff,cout=>cout2);
+	result_1(0)<=diff(0);
+	result_1(1)<=diff(1);
+	result_1(2)<=diff(2);
+	result_1(3)<=diff(3);
+	result_1(4)<=cout2;
+	result_1(5)<='-';
+	result_1(6)<='-';
+	result_1(7)<='-';
+
+	-- Multiplier
+	MUL1: Multiplier
+		port map(a=>a,b=>b,result=>result_2);
+	
+	-- Comparator
+	COMP1: Comparator
+		port map(a=>a,b=>b,result=>comp);
+	result_3(0)<=comp(0);
+	result_3(1)<=comp(1);
+	result_3(2)<=comp(2);
+	result_3(3)<='-';
+	result_3(4)<='-';
+	result_3(5)<='-';
+	result_3(6)<='-';
+	result_3(7)<='-';
+
+	--Bitwise NAND
+	NAND1: BitwiseNAND
+		port map(a=>a,b=>b,c=>BNAND);
+	result_4(0)<=BNAND(0);
+	result_4(1)<=BNAND(1);
+	result_4(2)<=BNAND(2);
+	result_4(3)<=BNAND(3);
+	result_4(4)<='-';
+	result_4(5)<='-';
+	result_4(6)<='-';
+	result_4(7)<='-';
+
+	--Bitwise NOR
+	NOR1: BitwiseNOR
+		port map(a=>a,b=>b,c=>BNOR);
+	result_5(0)<=BNOR(0);
+	result_5(1)<=BNOR(1);
+	result_5(2)<=BNOR(2);
+	result_5(3)<=BNOR(3);
+	result_5(4)<='-';
+	result_5(5)<='-';
+	result_5(6)<='-';
+	result_5(7)<='-';
+
+	--Bitwise NXOR
+	XOR1: BitwiseXOR
+		port map(a=>a,b=>b,c=>BXOR);
+	result_6(0)<=BXOR(0);
+	result_6(1)<=BXOR(1);
+	result_6(2)<=BXOR(2);
+	result_6(3)<=BXOR(3);
+	result_6(4)<='-';
+	result_6(5)<='-';
+	result_6(6)<='-';
+	result_6(7)<='-';
+
+	--Bitwise XNOR
+	XNOR1: BitwiseXNOR
+		port map(a=>a,b=>b,c=>BXNOR);
+	result_7(0)<=BXNOR(0);
+	result_7(1)<=BXNOR(1);
+	result_7(2)<=BXNOR(2);
+	result_7(3)<=BXNOR(3);
+	result_7(4)<='-';
+	result_7(5)<='-';
+	result_7(6)<='-';
+	result_7(7)<='-';
+
+	-- Selector using 8x1 Mux
+	SELECTOR1: EightOneMux
+		port map(
+			i0=>result_0,i1=>result_1,i2=>result_2,i3=>result_3,
+			i4=>result_4,i5=>result_5,i6=>result_6,i7=>result_7,
+			sel=>sel,
+			o=>result
+		);
+end architecture;	

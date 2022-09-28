@@ -1,0 +1,7 @@
+State   Recv-Q   Send-Q      Local Address:Port             Peer Address:Port   
+LISTEN  0        32              10.42.0.1:domain                0.0.0.0:*      
+LISTEN  0        128         127.0.0.53%lo:domain                0.0.0.0:*      
+LISTEN  0        5               127.0.0.1:ipp                   0.0.0.0:*      
+LISTEN  0        224             127.0.0.1:postgresql            0.0.0.0:*      
+LISTEN  0        511                     *:http                        *:*      
+LISTEN  0        5                   [::1]:ipp                      [::]:*      

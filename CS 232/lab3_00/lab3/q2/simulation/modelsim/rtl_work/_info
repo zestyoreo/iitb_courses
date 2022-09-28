@@ -1,0 +1,175 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/zestyoreo/Desktop/lab3/q2/simulation/modelsim
+Efourbitripcaradd
+Z1 w1643580900
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z4 8/home/zestyoreo/Desktop/lab3/q2/FourbitRipCarAdd.vhd
+Z5 F/home/zestyoreo/Desktop/lab3/q2/FourbitRipCarAdd.vhd
+l0
+L4 1
+VfQ;=9eA3F:?87IN0QRm2e3
+!s100 L[H[?A5HAUzZjN?Vc8OF[3
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1643582772
+!i10b 1
+Z8 !s108 1643582772.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|/home/zestyoreo/Desktop/lab3/q2/FourbitRipCarAdd.vhd|
+Z10 !s107 /home/zestyoreo/Desktop/lab3/q2/FourbitRipCarAdd.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Afourbitripcaradd_arc
+R2
+R3
+DEx4 work 16 fourbitripcaradd 0 22 fQ;=9eA3F:?87IN0QRm2e3
+!i122 0
+l21
+L13 20
+VKj7oD><EAP3K0mD3NL;Z41
+!s100 6K04TTo<]3a^<nUVO^I8M3
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Eonebitfulladd
+R1
+R2
+R3
+!i122 1
+R0
+Z13 8/home/zestyoreo/Desktop/lab3/q2/OnebitFullAdd.vhd
+Z14 F/home/zestyoreo/Desktop/lab3/q2/OnebitFullAdd.vhd
+l0
+L4 1
+VVlFfAaT==9Re58FI]8U[Q1
+!s100 FO_iIF`aKS8@7`iFinEB72
+R6
+31
+Z15 !s110 1643582773
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-93|-work|work|/home/zestyoreo/Desktop/lab3/q2/OnebitFullAdd.vhd|
+Z17 !s107 /home/zestyoreo/Desktop/lab3/q2/OnebitFullAdd.vhd|
+!i113 1
+R11
+R12
+Aonebitfulladd_arc
+R2
+R3
+DEx4 work 13 onebitfulladd 0 22 VlFfAaT==9Re58FI]8U[Q1
+!i122 1
+l19
+L11 17
+V=>4e`461VS2:mWALP>O?I1
+!s100 n:H^gZd>CY]KolAOcSm091
+R6
+31
+R15
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R11
+R12
+Eonebithalfadd
+R1
+R2
+R3
+!i122 2
+R0
+Z18 8/home/zestyoreo/Desktop/lab3/q2/OnebitHalfAdd.vhd
+Z19 F/home/zestyoreo/Desktop/lab3/q2/OnebitHalfAdd.vhd
+l0
+L4 1
+VzeFz@kTFD;5[iDgNX4B;23
+!s100 >I6AkREUzM^k6zZ9?gEDO2
+R6
+31
+R15
+!i10b 1
+Z20 !s108 1643582773.000000
+Z21 !s90 -reportprogress|300|-93|-work|work|/home/zestyoreo/Desktop/lab3/q2/OnebitHalfAdd.vhd|
+Z22 !s107 /home/zestyoreo/Desktop/lab3/q2/OnebitHalfAdd.vhd|
+!i113 1
+R11
+R12
+Aonebithalfadd_arc
+R2
+R3
+DEx4 work 13 onebithalfadd 0 22 zeFz@kTFD;5[iDgNX4B;23
+!i122 2
+l12
+L11 5
+VbTLC^H5_lBMTO>^^[@P9i0
+!s100 >i=KJZ87[LbZXC:gP>G4S0
+R6
+31
+R15
+!i10b 1
+R20
+R21
+R22
+!i113 1
+R11
+R12
+Etest
+R1
+R2
+R3
+!i122 3
+R0
+Z23 8/home/zestyoreo/Desktop/lab3/q2/test.vhd
+Z24 F/home/zestyoreo/Desktop/lab3/q2/test.vhd
+l0
+L4 1
+VGGmf6>`RWGZC2z=He``6]0
+!s100 L@aSM3N:dZ<1VVU3FKV_V3
+R6
+31
+R15
+!i10b 1
+R20
+Z25 !s90 -reportprogress|300|-93|-work|work|/home/zestyoreo/Desktop/lab3/q2/test.vhd|
+!s107 /home/zestyoreo/Desktop/lab3/q2/test.vhd|
+!i113 1
+R11
+R12
+Abeh
+R2
+R3
+DEx4 work 4 test 0 22 GGmf6>`RWGZC2z=He``6]0
+!i122 3
+l21
+L7 43
+Vd?i4fU0Ud:eShBQb9b=hk2
+!s100 kIWdo@3mE9EATI11mBLg43
+R6
+31
+R15
+!i10b 1
+R20
+R25
+Z26 !s107 /home/zestyoreo/Desktop/lab3/q2/test.vhd|
+!i113 1
+R11
+R12

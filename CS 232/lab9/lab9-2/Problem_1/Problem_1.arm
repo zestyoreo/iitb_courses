@@ -1,0 +1,116 @@
+		AREA	my_code,CODE,READWRITE
+start
+
+		ADR		R0,string_ROM	
+		LDRB	R8,[R0],#01		
+		LDR		R2,=0x20000000	
+		LDR		R3,=0x30000000	
+		MOV		R4,#0x28			;  	(
+		MOV		R5,#0x29			;  	)
+		MOV		R6,#0x2b			;	+
+		MOV		R7,#0x2d			;	-
+		MOV		R8,#0x2a			;	*
+		MOV		R9,#0x2f			;	/
+		MOV		R10,#0x23		;	#
+		
+up		LDRB	R1,[R0],#01			
+		cmp		R1,R4
+		BEQ		op
+		cmp		R1,R5
+		BEQ		rp
+		cmp		R1,R6
+		BEQ		op
+		cmp		R1,R7
+		BEQ		op
+		cmp		R1,R8
+		BEQ		op
+		cmp		R1,R9
+		BEQ		op
+		cmp		R1,R10
+		BEQ		endn
+		cmp		R1,#0x40
+		BGT		var
+		SUB		R1,R1,#0x30
+		B		const
+op		STRB	R1,[R2],#01	
+		B 		up
+rp		SUB		R2,R2,#0x01		
+		MOV		R14,0x00
+		LDRB	R11,[R2]		
+		STRB	R14,[R2]		
+		SUB		R2,R2,#0x01		
+		STRB	R14,[R2]		
+		SUB		R3,R3,#0x01		
+		LDRB	R12,[R3]		
+		STRB	R14,[R3]		
+		SUB		R3,R3,#0x01		
+		LDRB	R13,[R3]	
+		STRB	R14,[R3]		
+		cmp		R11,R6
+		BEQ		addn
+		cmp		R11,R7
+		BEQ		subn
+		cmp		R11,R8
+		BEQ		muln
+		cmp		R11,R9
+		BEQ		divn
+		
+addn	ADD		R14,R12,R13	
+		STRB	R14,[R3],#01			
+		B		up
+		
+subn	SUB		R14,R13,R12
+		STRB	R14,[R3],#01			
+		B		up
+		
+muln	MUL		R14,R12,R13					
+		STRB	R14,[R3],#01
+		B		up
+		
+divn	MOV		R14,#0x00
+lp2		cmp		R13,R12						
+		BLT		lp2end
+		ADD		R14,R14,#0x01
+		SUB		R13,R13,R12
+		B		lp2
+lp2end	STRB	R14,[R3],#01
+		B		up
+		
+var		ADR		R14,variable_ROM
+		LDRB	R11,[R14],#01		
+loop	LDRB	R12,[R14],#02
+		cmp		R12,R1				
+		BNE		loop
+		SUB		R14,R14,#0x01
+		LDRB	R13,[R14]
+		STRB	R13,[R3],#01
+		B		up
+		
+const	SUB		R0,R0,#02
+		LDRB	R11,[R0],#02			
+		cmp		R11,#0x30					
+		BLT		noprev					
+		cmp		R11,#0x39
+		BGT		noprev
+		SUB		R3,R3,#0x01				
+										
+		LDRB	R12,[R3]			
+		MOV		R13,#0x0a				
+		MUL		R14,R12,R13				
+		ADD		R14,R14,R1				
+		STRB	R14,[R3],#01
+		B		up
+noprev	STRB	R1,[R3],#01
+		B		up
+		
+endn	SUB		R3,R3,#01
+		LDRB 	R1,[R3]					
+		ADD		R3,R3,#01
+here	B 		here
+
+       ;test case ((((X+50)/(Y*Z))+5)-3)#                X=70,Y=16,Z=7
+	   ; should output 3
+string_ROM	DCB		0x17,0x28,0x28,0x28,0x28,0x58,0x2b,0x35,0x30,0x29,0x2f,0x28,0x59,0x2a,0x5a,0x29,0x29,0x2b,0x35,0x29,0x2d,0x33,0x29,0x23														;stores the no of vertex and source vertex
+variable_ROM 	DCB		0x03,0x58,0x46,0x59,0x10,0x5a,0x07		
+		END
+		

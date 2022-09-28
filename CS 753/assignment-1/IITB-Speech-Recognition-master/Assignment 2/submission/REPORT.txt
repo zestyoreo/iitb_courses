@@ -1,0 +1,109 @@
+-----------------------------------------------------------------------------------------------------------------
+CS753 : ASSIGNMENT 2 - Report
+
+    NAME: Satti Vamsi Krishna Reddy                     ROLL NUMBER: 160050064
+    NAME: Yaswanth Kumar Orru                           ROLL NUMBER: 160050066
+    NAME: Vighnesh Reddy Konda                          ROLL NUMBER: 160050090
+-----------------------------------------------------------------------------------------------------------------
+
+
+
+------------------
+    QUESTION 1
+------------------
+
+Updated Parameters are:
+
+	num_iters=50    # Number of iterations of training
+	max_iter_inc=15 # Last iter to increase #Gauss on.
+	initial_beam=40 # beam used in the first iteration (set smaller to speed up initialization)
+	regular_beam=50 # beam used after the first iteration
+	retry_beam=60
+	totgauss=3600 # Target #Gaussians.
+	boost_silence=1.6 # Factor by which to boost silence likelihoods in alignment
+	power=0.5 # exponent to determine number of gaussians from occurrence counts
+
+
+
+------------------
+    QUESTION 2
+------------------
+
+(a)
+	They indicate different versions of the phone, which indicate the position of phone within the word.
+The possible suffixes are (_B) - Begin, (_E) - End, (_I) - Internal and (_S) - Singleton.
+
+(b)
+	They are called disambiguation symbols. When a phoneme sequence is prefix of another phoneme sequence in a lexicon, or when a phone sequence is observed in more than one word, these symbols are added to such a sequence to ensure the determinizability of L o G (symbols are created starting from #1, #2 and so on). #0 is added for backoff arcs in G to ensure G is determinizable after epsilon-removal.
+
+
+
+------------------
+    QUESTION 3
+------------------
+
+(a) 
+	%WER 50.09 [ 548 / 1094, 25 ins, 124 del, 399 sub ] exp/mono/decode_test/wer_7
+	%WER 45.80 [ 501 / 1094, 37 ins, 124 del, 340 sub ] exp/tri1/decode_test/wer_15
+    
+	We can see an improvement of about 4.29% in WER by using triphone models.
+
+
+(b)
+	First argument is number of leaves of the Decision Tree. Second aargument is the number of gaussians in gaussiam mixture models. Our tuned values are 3000 and 30000. In general with increase in number of gaussians, model capacity increases and hence more prone to overfitting. Number of leaves also has a similar effect, and ideal value helps in better generalization.
+
+
+
+------------------
+    QUESTION 4
+------------------
+
+We ran the following commands to analyze various smoothing parameters.
+
+	ngram-count -order 1 -text ../corpus/LM/train.txt -write countsfile
+	sort -n -r -k 2 countsfile | head -n 20000 | cut -f 1 > 20000.words
+	ngram-count -vocab 20000.words -text ../corpus/LM/train.txt -order 3 -kndiscount1 -kndiscount2 -kndiscount3 -interpolate -lm local/corp_kn.lm.arpa
+	ngram-count -text ../corpus/LM/train.txt -order 1 -addsmooth 0.001 -lm local/corp_lm1.lm.arpa
+	ngram-count -text ../corpus/LM/train.txt -order 2 -addsmooth 0.001 -lm local/corp_lm2.lm.arpa
+	ngram-count -text ../corpus/LM/train.txt -order 3 -addsmooth 0.001 -lm local/corp_lm3.lm.arpa
+	ngram -order 3 -lm local/corp_lm3.lm.arpa -mix-lm local/corp_lm2.lm.arpa -lambda 0.1 -mix-lm2 local/corp_lm1.lm.arpa -mix-lambda2 0.05 -write-lm local/corp_mix1.lm.arpa
+	ngram -order 3 -lm local/corp_lm3.lm.arpa -mix-lm local/corp_lm2.lm.arpa -lambda 0.05 -mix-lm2 local/corp_lm1.lm.arpa -mix-lambda2 0.02 -write-lm local/corp_mix2.lm.arpa
+	ngram -order 3 -lm local/corp_lm3.lm.arpa -mix-lm local/corp_lm2.lm.arpa -lambda 0.2 -mix-lm2 local/corp_lm1.lm.arpa -mix-lambda2 0.1 -write-lm local/corp_mix3.lm.arpa
+	ngram -lm local/corp_kn.lm.arpa -ppl ../corpus/LM/test.txt > local/ppl_kn.txt
+	ngram -lm local/swahili.small.arpa -ppl ../corpus/LM/test.txt > local/ppl_small.txt
+	ngram -lm local/corp_mix1.lm.arpa -ppl ../corpus/LM/test.txt > local/ppl_mix1.txt
+	ngram -lm local/corp_mix2.lm.arpa -ppl ../corpus/LM/test.txt > local/ppl_mix2.txt
+	ngram -lm local/corp_mix3.lm.arpa -ppl ../corpus/LM/test.txt > local/ppl_mix3.txt
+
+
+The perplexities for various choices we experimented with are:
+
+	ppl_small.txt had perplexity of 379.0319
+	ppl_kn.txt    had perplexity of 345.0019
+	ppl_mix1.txt  had perplexity of 424.9941
+	ppl_mix2.txt  had perplexity of 444.0809
+	ppl_mix3.txt  had perplexity of 407.5625
+
+We decided to use KN (Keneser-Ney discounting) as it gives the lowest perplexity.
+
+------------------
+    QUESTION 5
+------------------
+
+[5(a)]   --->   %WER 42.96 [ 470 / 1094, 36 ins, 121 del, 313 sub ] exp/tri1/decode_test5/wer_12
+[5(b)]   --->   %WER 42.23 [ 462 / 1094, 42 ins, 109 del, 311 sub ] exp/tri1/decode_test_big/wer_12
+
+(b) which uses rescoring is faster. 5(a) has a larger decoding size compared to 5(b). In 5(b) we are just rescoring the lattices in the existing graph. 
+
+
+
+------------------
+    QUESTION 6
+------------------
+
+[g]   --->   %WER 35.59 [ 258 / 725, 25 ins, 39 del, 194 sub ] exp/tri1/decode_test/wer_17
+[m]   --->   %WER 47.92 [ 46 / 96, 7 ins, 7 del, 32 sub ] exp/tri1/decode_test/wer_12
+[n]   --->   %WER 61.18 [ 52 / 85, 3 ins, 15 del, 34 sub ] exp/tri1/decode_test/wer_14
+[l]   --->   %WER 71.28 [ 134 / 188, 4 ins, 56 del, 74 sub ] exp/tri1/decode_test/wer_13
+
+The good utterances (g) have the lowest WER and very noisy (l) have the highest WER.

@@ -1,0 +1,216 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/zestyoreo/IITB/CS 232/lab2/q2/simulation/modelsim
+Enand_gate
+Z1 w1642748654
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 2
+R0
+Z4 8/home/zestyoreo/IITB/CS 232/lab2/q2/nand_gate.vhd
+Z5 F/home/zestyoreo/IITB/CS 232/lab2/q2/nand_gate.vhd
+l0
+L4 1
+V=`0fJcSbV3o`1Jc<2j:0T0
+!s100 a@2CQFW]DGgT4R7eE3gEG0
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1642856343
+!i10b 1
+Z8 !s108 1642856343.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|/home/zestyoreo/IITB/CS 232/lab2/q2/nand_gate.vhd|
+Z10 !s107 /home/zestyoreo/IITB/CS 232/lab2/q2/nand_gate.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Anand_arc
+R2
+R3
+DEx4 work 9 nand_gate 0 22 =`0fJcSbV3o`1Jc<2j:0T0
+!i122 2
+l9
+L8 4
+VdFKh?E`0aZ3C6Q2bhCOm@3
+!s100 L;5EE?YCUhc>ce7o5nTY82
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Enot_gate
+Z13 w1642749708
+R2
+R3
+!i122 1
+R0
+Z14 8/home/zestyoreo/IITB/CS 232/lab2/q2/not_gate.vhd
+Z15 F/home/zestyoreo/IITB/CS 232/lab2/q2/not_gate.vhd
+l0
+L4 1
+VlkmhT;W_>Wl`<Y:8@OVOf3
+!s100 ]j=kT8YQ]QAB:hQTBRXPb1
+R6
+31
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-93|-work|work|/home/zestyoreo/IITB/CS 232/lab2/q2/not_gate.vhd|
+Z17 !s107 /home/zestyoreo/IITB/CS 232/lab2/q2/not_gate.vhd|
+!i113 1
+R11
+R12
+Anot_arc
+R2
+R3
+DEx4 work 8 not_gate 0 22 lkmhT;W_>Wl`<Y:8@OVOf3
+!i122 1
+l17
+L11 12
+V7=azS=XA]OWdGGSQRVMi80
+!s100 9FJ4ZEiG^LRcOccCPUF1L2
+R6
+31
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R11
+R12
+Etest
+Z18 w1642838945
+R2
+R3
+!i122 4
+R0
+Z19 8/home/zestyoreo/IITB/CS 232/lab2/q2/test.vhd
+Z20 F/home/zestyoreo/IITB/CS 232/lab2/q2/test.vhd
+l0
+L4 1
+VGGmf6>`RWGZC2z=He``6]0
+!s100 L@aSM3N:dZ<1VVU3FKV_V3
+R6
+31
+R7
+!i10b 1
+R8
+Z21 !s90 -reportprogress|300|-93|-work|work|/home/zestyoreo/IITB/CS 232/lab2/q2/test.vhd|
+!s107 /home/zestyoreo/IITB/CS 232/lab2/q2/test.vhd|
+!i113 1
+R11
+R12
+Abeh
+R2
+R3
+DEx4 work 4 test 0 22 GGmf6>`RWGZC2z=He``6]0
+!i122 4
+l22
+L7 43
+VA4iJgeaSOHiYnMm`Xad4C2
+!s100 CBzM0?Ra^nbFPbSKPGGL32
+R6
+31
+R7
+!i10b 1
+R8
+R21
+Z22 !s107 /home/zestyoreo/IITB/CS 232/lab2/q2/test.vhd|
+!i113 1
+R11
+R12
+Ethree_and_gate
+Z23 w1642749972
+R2
+R3
+!i122 3
+R0
+Z24 8/home/zestyoreo/IITB/CS 232/lab2/q2/three_and_gate.vhd
+Z25 F/home/zestyoreo/IITB/CS 232/lab2/q2/three_and_gate.vhd
+l0
+L4 1
+V2BdPhQROI@Fc_8iKfA]GF2
+!s100 ^[h3O`OKD20X6KV38Ehgo2
+R6
+31
+R7
+!i10b 1
+R8
+Z26 !s90 -reportprogress|300|-93|-work|work|/home/zestyoreo/IITB/CS 232/lab2/q2/three_and_gate.vhd|
+Z27 !s107 /home/zestyoreo/IITB/CS 232/lab2/q2/three_and_gate.vhd|
+!i113 1
+R11
+R12
+Athree_and_gate_arc
+R2
+R3
+DEx4 work 14 three_and_gate 0 22 2BdPhQROI@Fc_8iKfA]GF2
+!i122 3
+l22
+L11 27
+Vm:C]Ak6KaGEZe43WUldj51
+!s100 MQdUC7SGiaV_J:<UnDM6a1
+R6
+31
+R7
+!i10b 1
+R8
+R26
+R27
+!i113 1
+R11
+R12
+Ethreebyeightdecode
+Z28 w1642856183
+R2
+R3
+!i122 0
+R0
+Z29 8/home/zestyoreo/IITB/CS 232/lab2/q2/ThreebyEightDecode.vhd
+Z30 F/home/zestyoreo/IITB/CS 232/lab2/q2/ThreebyEightDecode.vhd
+l0
+L4 1
+VO>k<C@m8Z7CRB;PeDjgh10
+!s100 705;7M?hLij;[jg6T:R4`1
+R6
+31
+R7
+!i10b 1
+R8
+Z31 !s90 -reportprogress|300|-93|-work|work|/home/zestyoreo/IITB/CS 232/lab2/q2/ThreebyEightDecode.vhd|
+Z32 !s107 /home/zestyoreo/IITB/CS 232/lab2/q2/ThreebyEightDecode.vhd|
+!i113 1
+R11
+R12
+Athreebyeightdecode_arc
+R2
+R3
+DEx4 work 18 threebyeightdecode 0 22 O>k<C@m8Z7CRB;PeDjgh10
+!i122 0
+l23
+L12 42
+V47TFMC7`]:aXJiFRJ0XJ60
+!s100 ^5[f8e>MU1b>X9JgeLJ>L2
+R6
+31
+R7
+!i10b 1
+R8
+R31
+R32
+!i113 1
+R11
+R12

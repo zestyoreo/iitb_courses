@@ -1,0 +1,42 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity EightOneMux is
+	port(
+      i0,i1,i2,i3,i4,i5,i6,i7: in std_logic_vector (7 downto 0); 
+      sel: in std_logic_vector (2 downto 0);
+      o: out std_logic_vector (7 downto 0)
+    );
+end entity;
+
+architecture EightOneMux_arc of EightOneMux is
+    
+    signal o0: std_logic_vector (3 downto 0);
+    signal o1: std_logic_vector (1 downto 0);
+
+    component mux
+		port ( 
+			    i0,i1: in std_logic_vector (7 downto 0); 
+          s: in std_logic;
+          o: out std_logic_vector (7 downto 0)
+		);
+	end component;
+
+begin
+	mux0_1: mux
+		port map(i0=>i0,i1=>i1,s=>sel(0),o=>o0(0));
+    mux0_2: mux
+		port map(i0=>i2,i1=>i3,s=>sel(0),o=>o0(1));
+    mux0_3: mux
+		port map(i0=>i4,i1=>i5,s=>sel(0),o=>o0(2));
+    mux0_4: mux
+		port map(i0=>i6,i1=>i7,s=>sel(0),o=>o0(3));
+    
+    mux1_1: mux
+		port map(i0=>o0(0),i1=>o0(1),s=>sel(1),o=>o1(0));
+    mux1_1: mux
+		port map(i0=>o0(2),i1=>o0(3),s=>sel(1),o=>o1(1));
+    
+    mux2_1: mux
+		port map(i0=>o1(0),i1=>o1(1),s=>sel(2),o=>o);
+end architecture;	

@@ -1,0 +1,11 @@
+Fitter Status : Successful - Wed Jan 19 10:25:39 2022
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : xnor_gate
+Top-level Entity Name : xnor_gate
+Family : MAX V
+Device : 5M40ZM64C4
+Timing Models : Final
+Total logic elements : 1 / 40 ( 3 % )
+Total pins : 3 / 30 ( 10 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

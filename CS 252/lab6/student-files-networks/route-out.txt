@@ -1,0 +1,3 @@
+default via 172.16.1.1 dev wlp1s0 proto dhcp metric 600 
+169.254.0.0/16 dev wlp1s0 scope link metric 1000 
+172.16.1.0/24 dev wlp1s0 proto kernel scope link src 172.16.1.90 metric 600 

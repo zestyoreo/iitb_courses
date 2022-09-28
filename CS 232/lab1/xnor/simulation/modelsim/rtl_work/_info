@@ -1,0 +1,52 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/zestyoreo/IITB/CS 232/lab1/xnor/simulation/modelsim
+Exnor_gate
+Z1 w1642566484
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z4 8/home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate.vhd
+Z5 F/home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate.vhd
+l0
+L4 1
+VoHjG6MWB0dFHeA2?g`l@Z3
+!s100 ]fFOY[W@I4Kh;GH]MS4<B3
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1642566588
+!i10b 1
+Z8 !s108 1642566587.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|/home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate.vhd|
+!s107 /home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate.vhd|
+!i113 1
+Z10 o-93 -work work
+Z11 tExplicit 1 CvgOpt 0
+Axnor_arc
+R2
+R3
+DEx4 work 9 xnor_gate 0 22 oHjG6MWB0dFHeA2?g`l@Z3
+!i122 0
+l9
+L8 4
+V28B6kok3>_WGf1_I^D2eU1
+!s100 o60;5Q9Q2DACL4<Oc^USD2
+R6
+31
+R7
+!i10b 1
+R8
+R9
+Z12 !s107 /home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate.vhd|
+!i113 1
+R10
+R11

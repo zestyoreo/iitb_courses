@@ -1,0 +1,15 @@
+vendor_name = ModelSim
+source_file = 1, /home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate.vhd
+source_file = 1, /home/zestyoreo/IITB/CS 232/lab1/xnor/and_gate.vhd
+source_file = 1, /home/zestyoreo/IITB/CS 232/lab1/xnor/or_gate.vhd
+source_file = 1, /home/zestyoreo/IITB/CS 232/lab1/xnor/not_gate.vhd
+source_file = 1, /home/zestyoreo/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
+source_file = 1, /home/zestyoreo/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
+source_file = 1, /home/zestyoreo/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/timing_b.vhd
+source_file = 1, /home/zestyoreo/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/timing_p.vhd
+source_file = 1, /home/zestyoreo/IITB/CS 232/lab1/xnor/db/xnor_gate.cbx.xml
+design_name = xnor_gate
+instance = comp, \a~I , a, xnor_gate, 1
+instance = comp, \b~I , b, xnor_gate, 1
+instance = comp, \c~0 , c~0, xnor_gate, 1
+instance = comp, \c~I , c, xnor_gate, 1

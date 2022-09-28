@@ -1,0 +1,129 @@
+ -- Copyright (C) 2020  Intel Corporation. All rights reserved.
+ -- Your use of Intel Corporation's design tools, logic functions 
+ -- and other software and tools, and any partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Intel Program License 
+ -- Subscription Agreement, the Intel Quartus Prime License Agreement,
+ -- the Intel FPGA IP License Agreement, or other applicable license
+ -- agreement, including, without limitation, that your use is for
+ -- the sole purpose of programming logic devices manufactured by
+ -- Intel and sold by Intel or its authorized distributors.  Please
+ -- refer to the applicable agreement for further details, at
+ -- https://fpgasoftware.intel.com/eula.
+ -- 
+ -- This is a Quartus Prime output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus Prime input file. This file cannot be used
+ -- to make Quartus Prime pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus Prime help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- DNU           : Do Not Use. This pin MUST NOT be connected.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (1.8V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ --                  Bank 1:       3.3V
+ --                  Bank 2:       3.3V
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --                  It can also be used to report unused dedicated pins. The connection
+ --                  on the board for unused dedicated pins depends on whether this will
+ --                  be used in a future design. One example is device migration. When
+ --                  using device migration, refer to the device pin-tables. If it is a
+ --                  GND pin in the pin table or if it will not be used in a future design
+ --                  for another purpose the it MUST be connected to GND. If it is an unused
+ --                  dedicated pin, then it can be connected to a valid signal on the board
+ --                  (low, high, or toggling) if that signal is required for a different
+ --                  revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --                  This pin should be connected to GND. It may also be connected  to a
+ --                  valid signal  on the board  (low, high, or toggling)  if that signal
+ --                  is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin. Connect each pin marked GND* directly to GND
+ --                  or leave it unconnected.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- RESERVED_OUTPUT_DRIVEN_HIGH        : Pin is output driven high.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- Pin directions (input, output or bidir) are based on device operating in user mode.
+ ---------------------------------------------------------------------------------
+
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+CHIP  "xnor_gate"  ASSIGNED TO AN: 5M40ZM64C4
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+GND*                         : A1        :        :                   :         : 1         :                
+GND*                         : A2        :        :                   :         : 2         :                
+GND*                         : A3        :        :                   :         : 2         :                
+GND*                         : A4        :        :                   :         : 2         :                
+GND                          : A5        : gnd    :                   :         :           :                
+GND*                         : A6        :        :                   :         : 2         :                
+GND                          : A7        : gnd    :                   :         :           :                
+GND*                         : A8        :        :                   :         : 2         :                
+GND*                         : B1        :        :                   :         : 1         :                
+GND*                         : B2        :        :                   :         : 2         :                
+GND                          : B3        : gnd    :                   :         :           :                
+GND                          : B4        : gnd    :                   :         :           :                
+GND                          : B5        : gnd    :                   :         :           :                
+GND                          : B6        : gnd    :                   :         :           :                
+GND*                         : B7        :        :                   :         : 2         :                
+GND*                         : B8        :        :                   :         : 2         :                
+GND                          : C1        : gnd    :                   :         :           :                
+GND*                         : C2        :        :                   :         : 1         :                
+GND                          : C3        : gnd    :                   :         :           :                
+VCCIO2                       : C4        : power  :                   : 3.3V    : 2         :                
+GND*                         : C5        :        :                   :         : 2         :                
+GND*                         : C6        :        :                   :         : 2         :                
+GND                          : C7        : gnd    :                   :         :           :                
+GND*                         : C8        :        :                   :         : 2         :                
+GND                          : D1        : gnd    :                   :         :           :                
+GND*                         : D2        :        :                   :         : 1         :                
+VCCIO1                       : D3        : power  :                   : 3.3V    : 1         :                
+GND                          : D4        : gnd    :                   :         :           :                
+VCCIO2                       : D5        : power  :                   : 3.3V    : 2         :                
+VCCINT                       : D6        : power  :                   : 1.8V    :           :                
+GND                          : D7        : gnd    :                   :         :           :                
+GND*                         : D8        :        :                   :         : 2         :                
+GND                          : E1        : gnd    :                   :         :           :                
+b                            : E2        : input  : 3.3-V LVTTL       :         : 1         : N              
+VCCIO1                       : E3        : power  :                   : 3.3V    : 1         :                
+GND                          : E4        : gnd    :                   :         :           :                
+GND                          : E5        : gnd    :                   :         :           :                
+GND                          : E6        : gnd    :                   :         :           :                
+GND                          : E7        : gnd    :                   :         :           :                
+GND                          : E8        : gnd    :                   :         :           :                
+GND*                         : F1        :        :                   :         : 1         :                
+GND                          : F2        : gnd    :                   :         :           :                
+a                            : F3        : input  : 3.3-V LVTTL       :         : 1         : N              
+GND                          : F4        : gnd    :                   :         :           :                
+GND*                         : F5        :        :                   :         : 1         :                
+GND*                         : F6        :        :                   :         : 1         :                
+GND                          : F7        : gnd    :                   :         :           :                
+c                            : F8        : output : 3.3-V LVTTL       :         : 2         : N              
+TMS                          : G1        : input  :                   :         : 1         :                
+GND                          : G2        : gnd    :                   :         :           :                
+TDO                          : G3        : output :                   :         : 1         :                
+GND                          : G4        : gnd    :                   :         :           :                
+GND                          : G5        : gnd    :                   :         :           :                
+GND                          : G6        : gnd    :                   :         :           :                
+GND*                         : G7        :        :                   :         : 1         :                
+GND*                         : G8        :        :                   :         : 1         :                
+TDI                          : H1        : input  :                   :         : 1         :                
+TCK                          : H2        : input  :                   :         : 1         :                
+GND*                         : H3        :        :                   :         : 1         :                
+GND*                         : H4        :        :                   :         : 1         :                
+GND*                         : H5        :        :                   :         : 1         :                
+GND*                         : H6        :        :                   :         : 1         :                
+GND*                         : H7        :        :                   :         : 1         :                
+GND*                         : H8        :        :                   :         : 1         :                

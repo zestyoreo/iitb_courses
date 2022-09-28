@@ -1,0 +1,12 @@
+Connected to 18:64:72:6a:ee:f0 (on wlp1s0)
+	SSID: IITB-Wireless
+	freq: 2462
+	RX: 163798 bytes (836 packets)
+	TX: 105244 bytes (472 packets)
+	signal: -89 dBm
+	rx bitrate: 1.0 MBit/s
+	tx bitrate: 1.0 MBit/s
+
+	bss flags:	short-preamble short-slot-time
+	dtim period:	1
+	beacon int:	100

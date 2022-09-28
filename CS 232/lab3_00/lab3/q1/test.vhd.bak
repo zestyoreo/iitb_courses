@@ -1,0 +1,35 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity test is
+end test;
+
+architecture beh of test is
+
+	signal a_s,b_s,cin_s,sum_s,cout_s: std_logic;   --all signals
+	
+   component OnebitFullAdd
+		port (a, b, cin : in std_logic; sum, cout: out std_logic);
+	end component;
+	
+begin  
+
+full1 : OnebitFullAdd
+	port map (a => a_s,b => b_s,cin => cin_s,sum=> sum_s,cout=> cout_s);
+	
+	process
+   begin
+		 a_s<='0';
+       b_s<='0';
+       wait for 100 ns;
+       a_s<='1';
+       b_s<='0';
+       wait for 100 ns;
+       a_s<='0';
+       b_s<='1';
+       wait for 100 ns;
+       a_s<='1';
+       b_s<='1';
+       wait for 100 ns;
+    end process;
+end beh;

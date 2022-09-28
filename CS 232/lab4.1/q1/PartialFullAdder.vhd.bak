@@ -1,0 +1,19 @@
+library ieee;
+use ieee.std_logic_1164.all;
+ 
+entity PartialFullAdder is
+    port (
+		a,b,cin : in std_logic;
+		s,p,g: out std_logic
+	);
+end entity;
+ 
+architecture PartialFullAdder_arc of PartialFullAdder is
+
+begin
+    
+    p<= (a and (not (b))) or ((not (a)) and b); -- a xor b 
+    s<= (p and (not (cin))) or ((not (p)) and cin); -- a xor b xor cin
+    g<= a and b;
+ 
+end architecture;

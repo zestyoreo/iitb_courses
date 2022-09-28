@@ -1,0 +1,24 @@
+Quartus Prime Archive log --	/home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate_tmp_archive.qarlog
+
+Archive:	/home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate_tmp_archive.qar
+Date:		Wed Jan 19 15:04:15 2022
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/zestyoreo/IITB/CS 232/lab1/xnor/and_gate.vhd
+/home/zestyoreo/IITB/CS 232/lab1/xnor/not_gate.vhd
+/home/zestyoreo/IITB/CS 232/lab1/xnor/or_gate.vhd
+/home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate.qpf
+/home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate.qsf
+/home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate.vhd
+/home/zestyoreo/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf
+	======= Total: 7 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Wed Jan 19 15:04:18 2022
+Source archive file:	/home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate_tmp_archive.qar
+Archive was extracted into	/home/zestyoreo/IITB/CS 232/lab1/xor/
+		 - successfully.

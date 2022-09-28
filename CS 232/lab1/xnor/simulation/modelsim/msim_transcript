@@ -1,0 +1,34 @@
+# do xnor_gate_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying /home/zestyoreo/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {/home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:59:47 on Jan 19,2022
+# vcom -reportprogress 300 -93 -work work /home/zestyoreo/IITB/CS 232/lab1/xnor/xnor_gate.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity xnor_gate
+# -- Compiling architecture xnor_arc of xnor_gate
+# End time: 09:59:48 on Jan 19,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# 
+# stdin: <EOF>
+vsim work.xnor_gate(xnor_arc)
+# vsim work.xnor_gate(xnor_arc) 
+# Start time: 10:00:05 on Jan 19,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.xnor_gate(xnor_arc)
+# End time: 10:04:40 on Jan 19,2022, Elapsed time: 0:04:35
+# Errors: 0, Warnings: 0

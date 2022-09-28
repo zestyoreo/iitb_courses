@@ -1,0 +1,78 @@
+# do FourbitRipCarAdd_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying /home/zestyoreo/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {/home/zestyoreo/Desktop/lab3/q2/FourbitRipCarAdd.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 04:16:12 on Jan 31,2022
+# vcom -reportprogress 300 -93 -work work /home/zestyoreo/Desktop/lab3/q2/FourbitRipCarAdd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity FourbitRipCarAdd
+# -- Compiling architecture FourbitRipCarAdd_arc of FourbitRipCarAdd
+# End time: 04:16:12 on Jan 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/zestyoreo/Desktop/lab3/q2/OnebitFullAdd.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 04:16:12 on Jan 31,2022
+# vcom -reportprogress 300 -93 -work work /home/zestyoreo/Desktop/lab3/q2/OnebitFullAdd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity OnebitFullAdd
+# -- Compiling architecture OnebitFullAdd_arc of OnebitFullAdd
+# End time: 04:16:13 on Jan 31,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/zestyoreo/Desktop/lab3/q2/OnebitHalfAdd.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 04:16:13 on Jan 31,2022
+# vcom -reportprogress 300 -93 -work work /home/zestyoreo/Desktop/lab3/q2/OnebitHalfAdd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity OnebitHalfAdd
+# -- Compiling architecture OnebitHalfAdd_arc of OnebitHalfAdd
+# End time: 04:16:13 on Jan 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {/home/zestyoreo/Desktop/lab3/q2/test.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 04:16:13 on Jan 31,2022
+# vcom -reportprogress 300 -93 -work work /home/zestyoreo/Desktop/lab3/q2/test.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity test
+# -- Compiling architecture beh of test
+# End time: 04:16:13 on Jan 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  test
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs=""+acc"" test 
+# Start time: 04:16:13 on Jan 31,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.test(beh)
+# Loading work.fourbitripcaradd(fourbitripcaradd_arc)
+# Loading work.onebitfulladd(onebitfulladd_arc)
+# Loading work.onebithalfadd(onebithalfadd_arc)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# 
+# stdin: <EOF>
+# End time: 04:18:18 on Jan 31,2022, Elapsed time: 0:02:05
+# Errors: 0, Warnings: 0

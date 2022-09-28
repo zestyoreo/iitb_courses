@@ -1,0 +1,145 @@
+|EightbyThreeEncode
+i[0] => ~NO_FANOUT~
+i[1] => four_and_adder:And3.i0
+i[2] => four_and_adder:And2.i0
+i[3] => four_and_adder:And2.i1
+i[3] => four_and_adder:And3.i1
+i[4] => four_and_adder:And1.i0
+i[5] => four_and_adder:And1.i1
+i[5] => four_and_adder:And3.i2
+i[6] => four_and_adder:And1.i2
+i[6] => four_and_adder:And2.i2
+i[7] => four_and_adder:And1.i3
+i[7] => four_and_adder:And2.i3
+i[7] => four_and_adder:And3.i3
+en => four_and_adder:And1.e
+en => four_and_adder:And2.e
+en => four_and_adder:And3.e
+z[0] <= four_and_adder:And3.o
+z[1] <= four_and_adder:And2.o
+z[2] <= four_and_adder:And1.o
+
+
+|EightbyThreeEncode|four_and_adder:And1
+i0 => mux:Mux1.i0
+i1 => mux:Mux1.i1
+i1 => mux:Mux1.s
+i2 => mux:Mux2.i1
+i2 => mux:Mux2.s
+i3 => mux:Mux3.i1
+i3 => mux:Mux3.s
+e => mux:Mux1.e
+e => mux:Mux2.e
+e => mux:Mux3.e
+o <= mux:Mux3.o
+
+
+|EightbyThreeEncode|four_and_adder:And1|mux:Mux1
+i0 => o.IN0
+i1 => o.IN0
+e => o.IN1
+s => o.IN1
+s => o.IN1
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightbyThreeEncode|four_and_adder:And1|mux:Mux2
+i0 => o.IN0
+i1 => o.IN0
+e => o.IN1
+s => o.IN1
+s => o.IN1
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightbyThreeEncode|four_and_adder:And1|mux:Mux3
+i0 => o.IN0
+i1 => o.IN0
+e => o.IN1
+s => o.IN1
+s => o.IN1
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightbyThreeEncode|four_and_adder:And2
+i0 => mux:Mux1.i0
+i1 => mux:Mux1.i1
+i1 => mux:Mux1.s
+i2 => mux:Mux2.i1
+i2 => mux:Mux2.s
+i3 => mux:Mux3.i1
+i3 => mux:Mux3.s
+e => mux:Mux1.e
+e => mux:Mux2.e
+e => mux:Mux3.e
+o <= mux:Mux3.o
+
+
+|EightbyThreeEncode|four_and_adder:And2|mux:Mux1
+i0 => o.IN0
+i1 => o.IN0
+e => o.IN1
+s => o.IN1
+s => o.IN1
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightbyThreeEncode|four_and_adder:And2|mux:Mux2
+i0 => o.IN0
+i1 => o.IN0
+e => o.IN1
+s => o.IN1
+s => o.IN1
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightbyThreeEncode|four_and_adder:And2|mux:Mux3
+i0 => o.IN0
+i1 => o.IN0
+e => o.IN1
+s => o.IN1
+s => o.IN1
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightbyThreeEncode|four_and_adder:And3
+i0 => mux:Mux1.i0
+i1 => mux:Mux1.i1
+i1 => mux:Mux1.s
+i2 => mux:Mux2.i1
+i2 => mux:Mux2.s
+i3 => mux:Mux3.i1
+i3 => mux:Mux3.s
+e => mux:Mux1.e
+e => mux:Mux2.e
+e => mux:Mux3.e
+o <= mux:Mux3.o
+
+
+|EightbyThreeEncode|four_and_adder:And3|mux:Mux1
+i0 => o.IN0
+i1 => o.IN0
+e => o.IN1
+s => o.IN1
+s => o.IN1
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightbyThreeEncode|four_and_adder:And3|mux:Mux2
+i0 => o.IN0
+i1 => o.IN0
+e => o.IN1
+s => o.IN1
+s => o.IN1
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EightbyThreeEncode|four_and_adder:And3|mux:Mux3
+i0 => o.IN0
+i1 => o.IN0
+e => o.IN1
+s => o.IN1
+s => o.IN1
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+

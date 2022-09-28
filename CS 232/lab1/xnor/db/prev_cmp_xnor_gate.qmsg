@@ -1,0 +1,13 @@
+{ "Info" "0" "" "qar.tcl version #1" {  } {  } 0 0 "qar.tcl version #1" 0 0 "0" 0 0 1642584855063 ""}
+{ "Info" "0" "" "Including '-use_file_set basic' by default" {  } {  } 0 0 "Including '-use_file_set basic' by default" 0 0 "0" 0 0 1642584855343 ""}
+{ "Info" "0" "" "All project revisions will be stored in common archive xnor_gate_tmp_archive.qar" {  } {  } 0 0 "All project revisions will be stored in common archive xnor_gate_tmp_archive.qar" 0 0 "0" 0 0 1642584855344 ""}
+{ "Info" "0" "" "Initializing files for 'xnor_gate' revision" {  } {  } 0 0 "Initializing files for 'xnor_gate' revision" 0 0 "0" 0 0 1642584855464 ""}
+{ "Info" "0" "" "File Set 'Source control' contains:" { { "Info" "0" "" "Project source and settings files" {  } {  } 0 0 "Project source and settings files" 0 0 "0" 0 0 1642584855472 ""} { "Info" "0" "" "Automatically detected source files" {  } {  } 0 0 "Automatically detected source files" 0 0 "0" 0 0 1642584855472 ""}  } {  } 0 0 "File Set 'Source control' contains:" 0 0 "0" 0 0 1642584855472 ""}
+{ "Warning" "0" "" "Hierarchical Platform Designer systems and custom IP components(_hw.tcl and associated files) are not archived by the Quartus Archiver" {  } {  } 0 0 "Hierarchical Platform Designer systems and custom IP components(_hw.tcl and associated files) are not archived by the Quartus Archiver" 0 0 "0" 0 0 1642584855536 ""}
+{ "Info" "0" "" "Archive will store files relative to the closest common parent directory" {  } {  } 0 0 "Archive will store files relative to the closest common parent directory" 0 0 "0" 0 0 1642584855579 ""}
+{ "Info" "IPRJ_ARC_TCL_TCL_USING_COMMON_DIR" "/home/zestyoreo/IITB/CS 232/lab1/xnor/ " "Using common directory /home/zestyoreo/IITB/CS 232/lab1/xnor/" {  } {  } 0 13213 "Using common directory %1!s!" 0 0 "Design Software" 0 -1 1642584855616 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1642584855622 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1642584855622 ""}
+{ "Info" "0" "" "Generated archive 'xnor_gate_tmp_archive.qar'" {  } {  } 0 0 "Generated archive 'xnor_gate_tmp_archive.qar'" 0 0 "0" 0 0 1642584855622 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1642584855622 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1642584855622 ""}

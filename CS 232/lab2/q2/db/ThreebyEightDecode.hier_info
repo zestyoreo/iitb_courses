@@ -1,0 +1,566 @@
+|ThreebyEightDecode
+i[0] => not_gate:Not3.a
+i[0] => three_and_gate:Out1.c
+i[0] => three_and_gate:Out3.c
+i[0] => three_and_gate:Out5.c
+i[0] => three_and_gate:Out7.c
+i[1] => not_gate:Not2.a
+i[1] => three_and_gate:Out2.b
+i[1] => three_and_gate:Out3.b
+i[1] => three_and_gate:Out6.b
+i[1] => three_and_gate:Out7.b
+i[2] => not_gate:Not1.a
+i[2] => three_and_gate:Out4.a
+i[2] => three_and_gate:Out5.a
+i[2] => three_and_gate:Out6.a
+i[2] => three_and_gate:Out7.a
+en => three_and_gate:Out0.e
+en => three_and_gate:Out1.e
+en => three_and_gate:Out2.e
+en => three_and_gate:Out3.e
+en => three_and_gate:Out4.e
+en => three_and_gate:Out5.e
+en => three_and_gate:Out6.e
+en => three_and_gate:Out7.e
+z[0] <= three_and_gate:Out0.o
+z[1] <= three_and_gate:Out1.o
+z[2] <= three_and_gate:Out2.o
+z[3] <= three_and_gate:Out3.o
+z[4] <= three_and_gate:Out4.o
+z[5] <= three_and_gate:Out5.o
+z[6] <= three_and_gate:Out6.o
+z[7] <= three_and_gate:Out7.o
+
+
+|ThreebyEightDecode|not_gate:Not1
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|not_gate:Not1|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|not_gate:Not2
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|not_gate:Not2|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|not_gate:Not3
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|not_gate:Not3|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out0
+a => nand_gate:Nand1.a
+b => nand_gate:Nand1.b
+c => nand_gate:Nand2.b
+e => nand_gate:Nand3.b
+o <= not_gate:Not3.o
+
+
+|ThreebyEightDecode|three_and_gate:Out0|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out0|not_gate:Not1
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out0|not_gate:Not1|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out0|nand_gate:Nand2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out0|not_gate:Not2
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out0|not_gate:Not2|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out0|nand_gate:Nand3
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out0|not_gate:Not3
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out0|not_gate:Not3|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out1
+a => nand_gate:Nand1.a
+b => nand_gate:Nand1.b
+c => nand_gate:Nand2.b
+e => nand_gate:Nand3.b
+o <= not_gate:Not3.o
+
+
+|ThreebyEightDecode|three_and_gate:Out1|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out1|not_gate:Not1
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out1|not_gate:Not1|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out1|nand_gate:Nand2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out1|not_gate:Not2
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out1|not_gate:Not2|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out1|nand_gate:Nand3
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out1|not_gate:Not3
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out1|not_gate:Not3|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out2
+a => nand_gate:Nand1.a
+b => nand_gate:Nand1.b
+c => nand_gate:Nand2.b
+e => nand_gate:Nand3.b
+o <= not_gate:Not3.o
+
+
+|ThreebyEightDecode|three_and_gate:Out2|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out2|not_gate:Not1
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out2|not_gate:Not1|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out2|nand_gate:Nand2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out2|not_gate:Not2
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out2|not_gate:Not2|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out2|nand_gate:Nand3
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out2|not_gate:Not3
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out2|not_gate:Not3|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out3
+a => nand_gate:Nand1.a
+b => nand_gate:Nand1.b
+c => nand_gate:Nand2.b
+e => nand_gate:Nand3.b
+o <= not_gate:Not3.o
+
+
+|ThreebyEightDecode|three_and_gate:Out3|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out3|not_gate:Not1
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out3|not_gate:Not1|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out3|nand_gate:Nand2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out3|not_gate:Not2
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out3|not_gate:Not2|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out3|nand_gate:Nand3
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out3|not_gate:Not3
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out3|not_gate:Not3|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out4
+a => nand_gate:Nand1.a
+b => nand_gate:Nand1.b
+c => nand_gate:Nand2.b
+e => nand_gate:Nand3.b
+o <= not_gate:Not3.o
+
+
+|ThreebyEightDecode|three_and_gate:Out4|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out4|not_gate:Not1
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out4|not_gate:Not1|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out4|nand_gate:Nand2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out4|not_gate:Not2
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out4|not_gate:Not2|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out4|nand_gate:Nand3
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out4|not_gate:Not3
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out4|not_gate:Not3|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out5
+a => nand_gate:Nand1.a
+b => nand_gate:Nand1.b
+c => nand_gate:Nand2.b
+e => nand_gate:Nand3.b
+o <= not_gate:Not3.o
+
+
+|ThreebyEightDecode|three_and_gate:Out5|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out5|not_gate:Not1
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out5|not_gate:Not1|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out5|nand_gate:Nand2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out5|not_gate:Not2
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out5|not_gate:Not2|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out5|nand_gate:Nand3
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out5|not_gate:Not3
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out5|not_gate:Not3|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out6
+a => nand_gate:Nand1.a
+b => nand_gate:Nand1.b
+c => nand_gate:Nand2.b
+e => nand_gate:Nand3.b
+o <= not_gate:Not3.o
+
+
+|ThreebyEightDecode|three_and_gate:Out6|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out6|not_gate:Not1
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out6|not_gate:Not1|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out6|nand_gate:Nand2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out6|not_gate:Not2
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out6|not_gate:Not2|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out6|nand_gate:Nand3
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out6|not_gate:Not3
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out6|not_gate:Not3|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out7
+a => nand_gate:Nand1.a
+b => nand_gate:Nand1.b
+c => nand_gate:Nand2.b
+e => nand_gate:Nand3.b
+o <= not_gate:Not3.o
+
+
+|ThreebyEightDecode|three_and_gate:Out7|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out7|not_gate:Not1
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out7|not_gate:Not1|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out7|nand_gate:Nand2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out7|not_gate:Not2
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out7|not_gate:Not2|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out7|nand_gate:Nand3
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ThreebyEightDecode|three_and_gate:Out7|not_gate:Not3
+a => nand_gate:Nand1.a
+a => nand_gate:Nand1.b
+o <= nand_gate:Nand1.c
+
+
+|ThreebyEightDecode|three_and_gate:Out7|not_gate:Not3|nand_gate:Nand1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+

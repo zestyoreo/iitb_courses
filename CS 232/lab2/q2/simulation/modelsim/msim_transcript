@@ -1,0 +1,91 @@
+# do ThreebyEightDecode_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying /home/zestyoreo/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {/home/zestyoreo/IITB/CS 232/lab2/q2/ThreebyEightDecode.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:29:03 on Jan 22,2022
+# vcom -reportprogress 300 -93 -work work /home/zestyoreo/IITB/CS 232/lab2/q2/ThreebyEightDecode.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ThreebyEightDecode
+# -- Compiling architecture ThreebyEightDecode_arc of ThreebyEightDecode
+# End time: 18:29:03 on Jan 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/zestyoreo/IITB/CS 232/lab2/q2/not_gate.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:29:03 on Jan 22,2022
+# vcom -reportprogress 300 -93 -work work /home/zestyoreo/IITB/CS 232/lab2/q2/not_gate.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity not_gate
+# -- Compiling architecture not_arc of not_gate
+# End time: 18:29:03 on Jan 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/zestyoreo/IITB/CS 232/lab2/q2/nand_gate.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:29:03 on Jan 22,2022
+# vcom -reportprogress 300 -93 -work work /home/zestyoreo/IITB/CS 232/lab2/q2/nand_gate.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nand_gate
+# -- Compiling architecture nand_arc of nand_gate
+# End time: 18:29:03 on Jan 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/zestyoreo/IITB/CS 232/lab2/q2/three_and_gate.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:29:03 on Jan 22,2022
+# vcom -reportprogress 300 -93 -work work /home/zestyoreo/IITB/CS 232/lab2/q2/three_and_gate.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity three_and_gate
+# -- Compiling architecture three_and_gate_arc of three_and_gate
+# End time: 18:29:03 on Jan 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {/home/zestyoreo/IITB/CS 232/lab2/q2/test.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:29:03 on Jan 22,2022
+# vcom -reportprogress 300 -93 -work work /home/zestyoreo/IITB/CS 232/lab2/q2/test.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity test
+# -- Compiling architecture beh of test
+# ** Warning: /home/zestyoreo/IITB/CS 232/lab2/q2/test.vhd(47): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 18:29:03 on Jan 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  test
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs=""+acc"" test 
+# Start time: 18:29:03 on Jan 22,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.test(beh)
+# Loading work.threebyeightdecode(threebyeightdecode_arc)
+# Loading work.not_gate(not_arc)
+# Loading work.nand_gate(nand_arc)
+# Loading work.three_and_gate(three_and_gate_arc)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# 
+# stdin: <EOF>
+# End time: 18:31:58 on Jan 22,2022, Elapsed time: 0:02:55
+# Errors: 0, Warnings: 0

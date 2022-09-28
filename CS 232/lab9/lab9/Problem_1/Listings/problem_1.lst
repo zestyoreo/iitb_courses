@@ -1,0 +1,402 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             my_code,CODE,READWRITE
+    2 00000000         start
+    3 00000000         
+    4 00000000 E28F0F5F        ADR              R0,string_ROM ;R0 now stores ad
+                                                            dress of string_ROM
+                                                             array
+    5 00000004 E4D08001        LDRB             R8,[R0],#01 ;R8=N(length of str
+                                                            ing)
+    6 00000008 E3A02202        LDR              R2,=0x20000000 ;R2 stores addre
+                                                            ss 0x20000000      
+                                                             operator stack
+    7 0000000C E3A03203        LDR              R3,=0x30000000 ;R3 stores addre
+                                                            ss 0x30000000  valu
+                                                            e stack
+    8 00000010 E3A04028        MOV              R4,#0x28    ;  (
+    9 00000014 E3A05029        MOV              R5,#0x29    ;  )
+   10 00000018 E3A0602B        MOV              R6,#0x2b    ; +
+   11 0000001C E3A0702D        MOV              R7,#0x2d    ; -
+   12 00000020 E3A0802A        MOV              R8,#0x2a    ; *
+   13 00000024 E3A0902F        MOV              R9,#0x2f    ; /
+   14 00000028 E3A0A023        MOV              R10,#0x23   ; #
+   15 0000002C         
+   16 0000002C E4D01001 
+                       up      LDRB             R1,[R0],#01 ;value at address R
+                                                            0 stored in R1 and 
+                                                            also increase R0 by
+                                                             1
+   17 00000030 E1510004        cmp              R1,R4
+   18 00000034 0A00000F        BEQ              op
+   19 00000038 E1510005        cmp              R1,R5
+   20 0000003C 0A00000F        BEQ              rp
+   21 00000040 E1510006        cmp              R1,R6
+   22 00000044 0A00000B        BEQ              op
+   23 00000048 E1510007        cmp              R1,R7
+   24 0000004C 0A000009        BEQ              op
+   25 00000050 E1510008        cmp              R1,R8
+   26 00000054 0A000007        BEQ              op
+   27 00000058 E1510009        cmp              R1,R9
+   28 0000005C 0A000005        BEQ              op
+   29 00000060 E151000A        cmp              R1,R10
+   30 00000064 0A000042        BEQ              endn
+   31 00000068 E3510040        cmp              R1,#0x40
+   32 0000006C CA000028        BGT              var
+   33 00000070 E2411030        SUB              R1,R1,#0x30
+   34 00000074 EA00002F        B                const
+   35 00000078 E4C21001 
+                       op      STRB             R1,[R2],#01 ;store value R1 at 
+                                                            address R3 and also
+                                                             increase R3 by 1
+   36 0000007C EAFFFFEA        B                up
+   37 00000080 E2422001 
+                       rp      SUB              R2,R2,#0x01 ;go to last value o
+                                                            f operator stack
+   38 00000084 E3A0E000        MOV              R14,0x00
+   39 00000088 E5D2B000        LDRB             R11,[R2]    ;get the operator =
+                                                            ,-,/,* in R11
+   40 0000008C E5C2E000        STRB             R14,[R2]    ;pop the last value
+                                                             of operator stack
+   41 00000090 E2422001        SUB              R2,R2,#0x01 ;go to last value o
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+                                                            f operator stack
+   42 00000094 E5C2E000        STRB             R14,[R2]    ;pop ( from the ope
+                                                            rator stack
+   43 00000098 E2433001        SUB              R3,R3,#0x01 ;go to last value o
+                                                            f value stack
+   44 0000009C E5D3C000        LDRB             R12,[R3]    ;get the value of s
+                                                            econd operand in R1
+                                                            2
+   45 000000A0 E5C3E000        STRB             R14,[R3]    ;pop the last value
+                                                             of value stack
+   46 000000A4 E2433001        SUB              R3,R3,#0x01 ;go to last value o
+                                                            f value stack
+   47 000000A8 E5D3D000        LDRB             R13,[R3]    ;get the value of f
+                                                            irst operand in R13
+                                                            
+   48 000000AC E5C3E000        STRB             R14,[R3]    ;pop the last value
+                                                             of value stack
+   49 000000B0 E15B0006        cmp              R11,R6
+   50 000000B4 0A000005        BEQ              addn
+   51 000000B8 E15B0007        cmp              R11,R7
+   52 000000BC 0A000006        BEQ              subn
+   53 000000C0 E15B0008        cmp              R11,R8
+   54 000000C4 0A000007        BEQ              muln
+   55 000000C8 E15B0009        cmp              R11,R9
+   56 000000CC 0A000008        BEQ              divn
+   57 000000D0         
+   58 000000D0 E08CE00D 
+                       addn    ADD              R14,R12,R13
+   59 000000D4 E4C3E001        STRB             R14,[R3],#01 ;addition of 2 num
+                                                            bers
+   60 000000D8 EAFFFFD3        B                up
+   61 000000DC         
+   62 000000DC E04DE00C 
+                       subn    SUB              R14,R13,R12
+   63 000000E0 E4C3E001        STRB             R14,[R3],#01 ;subtraction of 2 
+                                                            numbers
+   64 000000E4 EAFFFFD0        B                up
+   65 000000E8         
+   66 000000E8 E00E0D9C 
+                       muln    MUL              R14,R12,R13 ;multiplication of 
+                                                            2 numbers
+   67 000000EC E4C3E001        STRB             R14,[R3],#01
+   68 000000F0 EAFFFFCD        B                up
+   69 000000F4         
+   70 000000F4 E3A0E000 
+                       divn    MOV              R14,#0x00
+   71 000000F8 E15D000C 
+                       lp2     cmp              R13,R12     ;division of 2 numb
+                                                            ers
+   72 000000FC BA000002        BLT              lp2end
+   73 00000100 E28EE001        ADD              R14,R14,#0x01
+   74 00000104 E04DD00C        SUB              R13,R13,R12
+   75 00000108 EAFFFFFA        B                lp2
+   76 0000010C E4C3E001 
+                       lp2end  STRB             R14,[R3],#01
+   77 00000110 EAFFFFC5        B                up
+   78 00000114         
+   79 00000114 E28FE080 
+                       var     ADR              R14,variable_ROM
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+   80 00000118 E4DEB001        LDRB             R11,[R14],#01 ;R11=No of variab
+                                                            les
+   81 0000011C E4DEC002 
+                       loop    LDRB             R12,[R14],#02
+   82 00000120 E15C0001        cmp              R12,R1      ;get value of corre
+                                                            sponding variable a
+                                                            nd store in variabl
+                                                            e stack
+   83 00000124 1AFFFFFC        BNE              loop
+   84 00000128 E24EE001        SUB              R14,R14,#0x01
+   85 0000012C E5DED000        LDRB             R13,[R14]
+   86 00000130 E4C3D001        STRB             R13,[R3],#01
+   87 00000134 EAFFFFBC        B                up
+   88 00000138         
+   89 00000138 E2400002 
+                       const   SUB              R0,R0,#02
+   90 0000013C E4D0B002        LDRB             R11,[R0],#02 ;If constant then 
+                                                            check if previous i
+                                                            n string expression
+                                                             is constant
+   91 00000140 E35B0030        cmp              R11,#0x30   ; If so multiply la
+                                                            st value in value s
+                                                            tack by 10 and add 
+                                                            current constant to
+                                                             it   
+   92 00000144 BA000008        BLT              noprev      ;Else add contant t
+                                                            o end of stack
+   93 00000148 E35B0039        cmp              R11,#0x39
+   94 0000014C CA000006        BGT              noprev
+   95 00000150 E2433001        SUB              R3,R3,#0x01
+   96 00000154         
+   97 00000154 E5D3C000        LDRB             R12,[R3]    ;R12=previous const
+                                                            ant value
+   98 00000158 E3A0D00A        MOV              R13,#0x0a   ;R13=10
+   99 0000015C E00E0D9C        MUL              R14,R12,R13 ;R14=R12*10
+  100 00000160 E08EE001        ADD              R14,R14,R1
+  101 00000164 E4C3E001        STRB             R14,[R3],#01
+  102 00000168 EAFFFFAF        B                up
+  103 0000016C E4C31001 
+                       noprev  STRB             R1,[R3],#01
+  104 00000170 EAFFFFAD        B                up
+  105 00000174         
+  106 00000174 E2433001 
+                       endn    SUB              R3,R3,#01
+  107 00000178 E5D31000        LDRB             R1,[R3]     ;Store answer in Re
+                                                            gister R1
+  108 0000017C E2833001        ADD              R3,R3,#01
+  109 00000180 EAFFFFFE 
+                       here    B                here
+  110 00000184         
+  111 00000184         ;test case ((((X+50)/(Y*Z))+5)-3)#                X=70,Y
+                       =16,Z=7
+  112 00000184         ; should output 3
+  113 00000184 17 28 28 
+              28 28 58 
+              2B 35 30 
+              29 2F 28 
+              59 2A 5A 
+              29 29 2B 
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+              35 29 2D 
+              33 29 23 string_ROM
+                               DCB              0x17,0x28,0x28,0x28,0x28,0x58,0
+x2b,0x35,0x30,0x29,0x2f,0x28,0x59,0x2a,0x5a,0x29,0x29,0x2b,0x35,0x29,0x2d,0x33,
+0x29,0x23 
+                                                            ;stores the no of v
+                                                            ertex and source ve
+                                                            rtex
+  114 0000019C 03 58 46 
+              59 10 5A 
+              07       variable_ROM
+                               DCB              0x03,0x58,0x46,0x59,0x10,0x5a,0
+x07
+  115 000001A3                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\problem_1.d -o.\objects\problem_1.o -IC:\Keil_v5\ARM\RV31\INC --predefin
+e="__UVISION_VERSION SETA 536" --list=.\listings\problem_1.lst Problem_1.arm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+addn 000000D0
+
+Symbol: addn
+   Definitions
+      At line 58 in file Problem_1.arm
+   Uses
+      At line 50 in file Problem_1.arm
+Comment: addn used once
+const 00000138
+
+Symbol: const
+   Definitions
+      At line 89 in file Problem_1.arm
+   Uses
+      At line 34 in file Problem_1.arm
+Comment: const used once
+divn 000000F4
+
+Symbol: divn
+   Definitions
+      At line 70 in file Problem_1.arm
+   Uses
+      At line 56 in file Problem_1.arm
+Comment: divn used once
+endn 00000174
+
+Symbol: endn
+   Definitions
+      At line 106 in file Problem_1.arm
+   Uses
+      At line 30 in file Problem_1.arm
+Comment: endn used once
+here 00000180
+
+Symbol: here
+   Definitions
+      At line 109 in file Problem_1.arm
+   Uses
+      At line 109 in file Problem_1.arm
+Comment: here used once
+loop 0000011C
+
+Symbol: loop
+   Definitions
+      At line 81 in file Problem_1.arm
+   Uses
+      At line 83 in file Problem_1.arm
+Comment: loop used once
+lp2 000000F8
+
+Symbol: lp2
+   Definitions
+      At line 71 in file Problem_1.arm
+   Uses
+      At line 75 in file Problem_1.arm
+Comment: lp2 used once
+lp2end 0000010C
+
+Symbol: lp2end
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+   Definitions
+      At line 76 in file Problem_1.arm
+   Uses
+      At line 72 in file Problem_1.arm
+Comment: lp2end used once
+muln 000000E8
+
+Symbol: muln
+   Definitions
+      At line 66 in file Problem_1.arm
+   Uses
+      At line 54 in file Problem_1.arm
+Comment: muln used once
+my_code 00000000
+
+Symbol: my_code
+   Definitions
+      At line 1 in file Problem_1.arm
+   Uses
+      None
+Comment: my_code unused
+noprev 0000016C
+
+Symbol: noprev
+   Definitions
+      At line 103 in file Problem_1.arm
+   Uses
+      At line 92 in file Problem_1.arm
+      At line 94 in file Problem_1.arm
+
+op 00000078
+
+Symbol: op
+   Definitions
+      At line 35 in file Problem_1.arm
+   Uses
+      At line 18 in file Problem_1.arm
+      At line 22 in file Problem_1.arm
+      At line 24 in file Problem_1.arm
+      At line 26 in file Problem_1.arm
+      At line 28 in file Problem_1.arm
+
+rp 00000080
+
+Symbol: rp
+   Definitions
+      At line 37 in file Problem_1.arm
+   Uses
+      At line 20 in file Problem_1.arm
+Comment: rp used once
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 2 in file Problem_1.arm
+   Uses
+      None
+Comment: start unused
+string_ROM 00000184
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+
+Symbol: string_ROM
+   Definitions
+      At line 113 in file Problem_1.arm
+   Uses
+      At line 4 in file Problem_1.arm
+Comment: string_ROM used once
+subn 000000DC
+
+Symbol: subn
+   Definitions
+      At line 62 in file Problem_1.arm
+   Uses
+      At line 52 in file Problem_1.arm
+Comment: subn used once
+up 0000002C
+
+Symbol: up
+   Definitions
+      At line 16 in file Problem_1.arm
+   Uses
+      At line 36 in file Problem_1.arm
+      At line 60 in file Problem_1.arm
+      At line 64 in file Problem_1.arm
+      At line 68 in file Problem_1.arm
+      At line 77 in file Problem_1.arm
+      At line 87 in file Problem_1.arm
+      At line 102 in file Problem_1.arm
+      At line 104 in file Problem_1.arm
+
+var 00000114
+
+Symbol: var
+   Definitions
+      At line 79 in file Problem_1.arm
+   Uses
+      At line 32 in file Problem_1.arm
+Comment: var used once
+variable_ROM 0000019C
+
+Symbol: variable_ROM
+   Definitions
+      At line 114 in file Problem_1.arm
+   Uses
+      At line 79 in file Problem_1.arm
+Comment: variable_ROM used once
+19 symbols
+350 symbols in table

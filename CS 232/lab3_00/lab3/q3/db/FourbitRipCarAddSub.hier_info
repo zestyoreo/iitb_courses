@@ -1,0 +1,142 @@
+|FourbitRipCarAddSub
+a[0] => FourbitRipCarAdd:FBRA1.a[0]
+a[1] => FourbitRipCarAdd:FBRA1.a[1]
+a[2] => FourbitRipCarAdd:FBRA1.a[2]
+a[3] => FourbitRipCarAdd:FBRA1.a[3]
+b[0] => b_dash[0].IN0
+b[1] => b_dash[1].IN0
+b[2] => b_dash[2].IN0
+b[3] => b_dash[3].IN0
+cin => b_dash[0].IN1
+cin => b_dash[1].IN1
+cin => b_dash[2].IN1
+cin => b_dash[3].IN1
+cin => FourbitRipCarAdd:FBRA1.cin
+sum[0] <= FourbitRipCarAdd:FBRA1.sum[0]
+sum[1] <= FourbitRipCarAdd:FBRA1.sum[1]
+sum[2] <= FourbitRipCarAdd:FBRA1.sum[2]
+sum[3] <= FourbitRipCarAdd:FBRA1.sum[3]
+cout <= FourbitRipCarAdd:FBRA1.cout
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1
+a[0] => OnebitFullAdd:FA1.a
+a[1] => OnebitFullAdd:FA2.a
+a[2] => OnebitFullAdd:FA3.a
+a[3] => OnebitFullAdd:FA4.a
+b[0] => OnebitFullAdd:FA1.b
+b[1] => OnebitFullAdd:FA2.b
+b[2] => OnebitFullAdd:FA3.b
+b[3] => OnebitFullAdd:FA4.b
+cin => OnebitFullAdd:FA1.cin
+sum[0] <= OnebitFullAdd:FA1.sum
+sum[1] <= OnebitFullAdd:FA2.sum
+sum[2] <= OnebitFullAdd:FA3.sum
+sum[3] <= OnebitFullAdd:FA4.sum
+cout <= OnebitFullAdd:FA4.cout
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA1
+a => OnebitHalfAdd:HA1.a
+b => OnebitHalfAdd:HA1.b
+cin => OnebitHalfAdd:HA2.b
+sum <= OnebitHalfAdd:HA2.s
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA1|OnebitHalfAdd:HA1
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA1|OnebitHalfAdd:HA2
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA2
+a => OnebitHalfAdd:HA1.a
+b => OnebitHalfAdd:HA1.b
+cin => OnebitHalfAdd:HA2.b
+sum <= OnebitHalfAdd:HA2.s
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA2|OnebitHalfAdd:HA1
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA2|OnebitHalfAdd:HA2
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA3
+a => OnebitHalfAdd:HA1.a
+b => OnebitHalfAdd:HA1.b
+cin => OnebitHalfAdd:HA2.b
+sum <= OnebitHalfAdd:HA2.s
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA3|OnebitHalfAdd:HA1
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA3|OnebitHalfAdd:HA2
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA4
+a => OnebitHalfAdd:HA1.a
+b => OnebitHalfAdd:HA1.b
+cin => OnebitHalfAdd:HA2.b
+sum <= OnebitHalfAdd:HA2.s
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA4|OnebitHalfAdd:HA1
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FourbitRipCarAddSub|FourbitRipCarAdd:FBRA1|OnebitFullAdd:FA4|OnebitHalfAdd:HA2
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
