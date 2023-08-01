@@ -1,0 +1,14 @@
+a:
+        .long   1
+b:
+        .long   2
+main:
+        pushl   %ebp
+        movl    %esp, %ebp
+        movl    a, %edx
+        movl    b, %eax
+        addl    %edx, %eax
+        movl    %eax, a
+        movl    $0, %eax
+        popl    %ebp
+        ret

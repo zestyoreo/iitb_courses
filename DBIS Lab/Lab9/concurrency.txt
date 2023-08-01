@@ -1,0 +1,131 @@
+lab9db=# show transaction isolation level;
+ transaction_isolation 
+-----------------------
+ read committed
+(1 row)
+
+
+Q1.
+A) Look at the value of tot_cred. Can you figure out why you got the result that you saw? What does this tell you about concurrency control in PostgreSQL?
+Output:
+lab9db=*# select * from student where name = 'Tanaka';
+  id   |  name  | dept_name | tot_cred 
+-------+--------+-----------+----------
+ 98988 | Tanaka | Biology   |      120
+(1 row)
+
+If we execute the "select" statement before committing the changes made by the first transaction, we will see the old value of the "tot_cred" column. This is because the first transaction has not yet committed its changes, so the second transaction sees the old uncommitted value.
+
+Once we commit the changes made by the first transaction using "commit;", the second transaction will be able to see the updated value of the "tot_cred" column.
+
+This behavior illustrates one of the fundamental concepts of concurrency control in PostgreSQL, which is transaction isolation. PostgreSQL provides different levels of transaction isolation to ensure that each transaction can operate independently without interfering with other concurrent transactions.
+
+In this case, the default transaction isolation level in PostgreSQL is "read committed", which means that each transaction sees only the committed changes made by other transactions. This ensures that concurrent transactions do not interfere with each other and that each transaction operates on a consistent view of the database.
+
+
+
+Q2.
+In the first window, we start a new transaction and update the "tot_cred" column for the row where the name is equal to 'Tanaka'.
+
+In the second window, we start a new transaction, first select the minimum value of the "tot_cred" column for the row where the name is equal to 'Tanaka', and then add 20 to it before updating the "tot_cred" column for the same row.
+
+However, since the first transaction has already locked the row for update, the second transaction is waiting for the lock to be released before proceeding with the update. This is the reason why the query appears to be hanging.
+
+Once we commit the first transaction in the first window using "commit;", the lock on the row is released, and the second transaction is able to proceed with the update.
+
+However, we might expect that the second transaction would update the "tot_cred" column to 64, which is the minimum value plus 20. But when we execute the query to retrieve the minimum value of the "tot_cred" column in the second window after committing both transactions, we see a value of 44 instead.
+
+This happens because the second transaction is still using the old value of the "tot_cred" column when it computes the minimum value, even though the first transaction has updated the value. This is because the second transaction is still running in its own isolated view of the database and is not able to see the changes made by the first transaction until it commits.
+
+Overall, this scenario illustrates one of the challenges of concurrency control in database systems, which is to ensure that concurrent transactions do not interfere with each other and that the results are consistent and correct.
+
+Output Window 1:
+lab9db=# begin;
+BEGIN
+lab9db=*# update student set tot_cred = 44 where name = 'Tanaka';
+UPDATE 1
+lab9db=*# commit; 
+COMMIT
+
+
+Output Window 2:
+lab9db=# begin ;
+BEGIN
+lab9db=*# select min(tot_cred) from student where name = 'Tanaka';
+ min 
+-----
+  55
+(1 row)
+
+lab9db=*# update student set tot_cred = (select min(tot_cred) from student where name = 'Tanaka')+20 where name = 'Tanaka'
+lab9db-*# ;
+;       
+UPDATE 1
+lab9db=*# ;
+lab9db=*# commit;
+COMMIT
+lab9db=# select min(tot_cred) from student where name = 'Tanaka';
+ min 
+-----
+  75
+(1 row)
+
+
+
+
+
+Q3. 
+lab9db=# set transaction isolation level serializable;
+WARNING:  SET TRANSACTION can only be used in transaction blocks
+SET
+
+Output Window 1:
+lab9db=# begin;
+BEGIN
+lab9db=*# set transaction isolation level serializable;
+SET
+lab9db=*# update student set tot_cred = 44 where name = 'Tanaka'
+lab9db-*# ;
+UPDATE 1
+lab9db=*# commit; 
+COMMIT
+lab9db=# select min(tot_cred) from student where name = 'Tanaka';
+ min 
+-----
+  44
+(1 row)
+
+Output Window 2:
+lab9db=# begin;
+BEGIN
+lab9db=*# set transaction isolation level serializable;
+SET
+lab9db=*# select min(tot_cred) from student where name = 'Tanaka';
+ min 
+-----
+  95
+(1 row)
+
+lab9db=*# update student set tot_cred = (select min(tot_cred) from student where name = 'Tanaka')+20 where name = 'Tanaka';
+ERROR:  could not serialize access due to concurrent update
+lab9db=!# select min(tot_cred) from student where name = 'Tanaka';
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+lab9db=!# commit;
+ROLLBACK
+lab9db=# select min(tot_cred) from student where name = 'Tanaka';
+ min 
+-----
+  44
+(1 row)
+
+
+
+The error "could not serialize access due to concurrent update" occurs when two or more transactions are trying to modify the same data concurrently, and the system is unable to ensure that the updates are executed serially.
+
+In the scenario, both transactions are trying to update the "tot_cred" column for the same row concurrently. Even though both transactions are set to the serializable isolation level, this does not completely eliminate the possibility of conflicts.
+
+In this case, one of the transactions was not able to proceed with its update because it was waiting for the other transaction to complete. This waiting period exceeded the maximum limit for serialization, which resulted in the error message.
+
+Q4)
+the salary values of the two instructors have been swapped.
+This is possible because both transactions are set to the serializable isolation level, which ensures that the updates are executed in a serializable order, even though they are being executed concurrently.

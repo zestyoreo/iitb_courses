@@ -1,0 +1,11 @@
+main:
+        pushl   %ebp
+        movl    %esp, %ebp
+        subl    $16, %esp
+        movl    $1, -4(%ebp)
+        movl    $2, -8(%ebp)
+        movl    -8(%ebp), %eax
+        addl    %eax, -4(%ebp)
+        movl    $0, %eax
+        leave
+        ret

@@ -1,0 +1,5 @@
+PSQL was already installed and was listening to port
+
+https://stackoverflow.com/questions/12028037/postgres-app-could-not-start-on-port-5432
+
+https://github.com/dwyl/learn-postgresql/issues/60

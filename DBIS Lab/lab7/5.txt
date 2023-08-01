@@ -1,0 +1,16 @@
+Q) Create an index as below, and see the time taken to create the index:
+     create index i1 on takes(id, semester, year);
+ Similarly see how long it takes to drop the above index using:
+     drop index i1;
+
+Solution:
+We use the '\timing' functionality to enable timing. "explain analyze" doesnt work on the create index command;
+
+=# \timing
+
+=# create index i1 on takes(id, semester, year);
+CREATE INDEX
+Time: 67.070 ms
+
+=#DROP INDEX
+Time: 2.525 ms

@@ -1,0 +1,24 @@
+owner_id,owner_name,owner_type,team_id,stake
+1,T. Venkattram Reddy,Person,8,60
+2,Gayatri Reddy,Person,8,40
+3,Ravindra Gaikwad,Person,9,35
+4,Shailendra Gaikwad,Person,9,40
+5,Shashi Tharoor,Person,9,10
+6,Harshad Ramniklal Mehta,Person,9,15
+7,Subrata Roy,Person,10,100
+8,Sanjiv Goenka,Person,12,100
+9,Keshav Bansal,Person,13,100
+10,N. Srinivasan,Person,3,100
+11,Sajjan Jindal,Person,6,28
+12,Grandhi Mallikarjuna Rao,Person,6,72
+13,Shah Rukh Khan,Person,1,51
+14,Jay Mehta,Person,1,49
+15,Mukesh Ambani,Person,7,100
+16,Preity Zinta,Person,4,28
+17,Mohit Burman,Person,4,54
+18,Ness Wadia,Person,4,18
+19,Manoj Badale,Person,5,33
+20,Lachlan Murdoch,Person,5,33
+21,Gerry Cardinale,Person,5,34
+22,United Spirits Limited,Company,2,100
+23,Kalanithi Maran,Person,11,100

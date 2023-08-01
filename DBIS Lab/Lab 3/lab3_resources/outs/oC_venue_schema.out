@@ -1,0 +1,8 @@
+CREATE TABLE venue (
+venue_id integer,
+venue_name text,
+city_name text,
+country_name text,
+capacity integer,
+PRIMARY KEY (venue_id)
+);

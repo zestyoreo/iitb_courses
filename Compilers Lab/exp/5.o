@@ -1,0 +1,22 @@
+_Z1pRi:
+        pushl   %ebp
+        movl    %esp, %ebp
+        subl    $16, %esp
+        movl    8(%ebp), %eax
+        movl    (%eax), %eax
+        addl    $1, %eax
+        movl    %eax, -4(%ebp)
+        nop
+        leave
+        ret
+main:
+        pushl   %ebp
+        movl    %esp, %ebp
+        subl    $16, %esp
+        leal    -4(%ebp), %eax
+        pushl   %eax
+        call    _Z1pRi
+        addl    $4, %esp
+        movl    $0, %eax
+        leave
+        ret

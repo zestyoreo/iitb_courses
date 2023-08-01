@@ -1,0 +1,16 @@
+main:
+        pushl   %ebp
+        movl    %esp, %ebp
+        subl    $16, %esp
+        fld1
+        fstps   -4(%ebp)
+        flds    .LC1
+        fstps   -8(%ebp)
+        flds    -4(%ebp)
+        fadds   -8(%ebp)
+        fstps   -4(%ebp)
+        movl    $0, %eax
+        leave
+        ret
+.LC1:
+        .long   1073741824

@@ -1,0 +1,21 @@
+_Z1fi:
+        pushl   %ebp
+        movl    %esp, %ebp
+        subl    $24, %esp
+        cmpl    $0, 8(%ebp)
+        jne     .L2
+        movl    $1, %eax
+        jmp     .L3
+.L2:
+        movl    8(%ebp), %eax
+        subl    $1, %eax
+        subl    $12, %esp
+        pushl   %eax
+        call    _Z1fi
+        addl    $16, %esp
+        movl    %eax, -12(%ebp)
+        movl    8(%ebp), %eax
+        imull   -12(%ebp), %eax
+.L3:
+        leave
+        ret

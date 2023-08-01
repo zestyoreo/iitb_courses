@@ -1,0 +1,24 @@
+gcc -g -c $1
+gcc -g -c $2
+gcc -g -c $3
+
+name1=`basename -s .c $1`
+name2=`basename -s .c $2`
+name3=`basename -s .c $3`
+
+echo $name1
+echo $name2
+echo $name3
+
+objdump -S -s $name1.o > $name1.obj
+objdump -S -s $name2.o > $name2.obj
+objdump -S -s $name3.o > $name3.obj
+
+readelf -W -r -s $name1.o > $name1.elf
+readelf -W -r -s $name2.o > $name2.elf
+readelf -W -r -s $name3.o > $name3.elf
+
+gcc -static $name1.o $name2.o  $name3.o -o exec
+objdump -S -s exec > exec.obj
+readelf -W -r -s exec > exec.elf
+# emacs $1.obj 

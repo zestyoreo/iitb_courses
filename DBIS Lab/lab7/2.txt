@@ -1,0 +1,28 @@
+Q)Create a selection query with an AND of two predicates, whose chosen plan uses an index scan on one of the predicates.  You can create indices on appropriate relation attributes to create such a case. 
+
+Solution:
+Here's an example selection query with an AND of two predicates that uses an index scan on one of the predicates:
+    SELECT *
+    FROM takes
+    WHERE ID = 'S01' AND year = 2022;
+
+When this query is executed, PostgreSQL will use the index scan on the year attribute to find the matching rows with the specified year value. Then, it will use the index on the primary key to filter out the rows that don't match the specified ID value.
+
+
+
+explain SELECT * FROM takes WHERE ID = 'S01' AND year = 2022;    
+                       QUERY PLAN                                
+-------------------------------------------------------------------------
+ Index Scan using takes_pkey on takes  (cost=0.29..8.45 rows=1 width=24)
+   Index Cond: (((id)::text = 'S01'::text) AND (year = '2022'::numeric))
+(2 rows)
+
+
+
+explain analyze SELECT * FROM takes WHERE ID = 'S01' AND year = 2022;  
+                                                    QUERY PLAN                                                     
+-------------------------------------------------------------------------------------------------------------------
+ Index Scan using takes_pkey on takes  (cost=0.29..8.45 rows=1 width=24) (actual time=0.092..0.093 rows=0 loops=1)
+   Index Cond: (((id)::text = 'S01'::text) AND (year = '2022'::numeric))
+ Planning Time: 0.208 ms
+ Execution Time: 0.116 ms

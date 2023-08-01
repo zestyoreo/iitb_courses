@@ -1,0 +1,95 @@
+CREATE TABLE player (
+player_id integer,
+player_name text,
+dob date,
+batting_hand text,
+bowling_skill text,
+country_name text,
+PRIMARY KEY (player_id)
+);
+CREATE TABLE team (
+team_id integer,
+team_name text,
+PRIMARY KEY (team_id)
+);
+CREATE TABLE venue (
+venue_id integer,
+venue_name text,
+city_name text,
+country_name text,
+capacity integer,
+PRIMARY KEY (venue_id)
+);
+CREATE TABLE match (
+match_id integer,
+season_year integer,
+team1 integer,
+team2 integer,
+venue_id integer,
+toss_winner integer,
+match_winner integer,
+toss_name text,
+win_type text,
+man_of_match integer,
+win_margin integer,
+attendance integer,
+PRIMARY KEY (match_id),
+FOREIGN KEY (man_of_match) REFERENCES player(player_id) ON DELETE SET NULL,
+FOREIGN KEY (match_winner) REFERENCES team(team_id) ON DELETE SET NULL,
+FOREIGN KEY (team1) REFERENCES team(team_id) ON DELETE SET NULL,
+FOREIGN KEY (team2) REFERENCES team(team_id) ON DELETE SET NULL,
+FOREIGN KEY (toss_winner) REFERENCES team(team_id) ON DELETE SET NULL,
+FOREIGN KEY (venue_id) REFERENCES venue(venue_id) ON DELETE SET NULL
+);
+CREATE TABLE ball_by_ball (
+match_id integer,
+innings_no integer,
+over_id integer,
+ball_id integer,
+runs_scored integer,
+extra_runs integer,
+out_type text,
+striker integer,
+non_striker integer,
+bowler integer,
+PRIMARY KEY (ball_id, innings_no, match_id, over_id),
+FOREIGN KEY (bowler) REFERENCES player(player_id) ON DELETE SET NULL,
+FOREIGN KEY (match_id) REFERENCES match(match_id) ON DELETE SET NULL,
+FOREIGN KEY (non_striker) REFERENCES player(player_id) ON DELETE SET NULL,
+FOREIGN KEY (striker) REFERENCES player(player_id) ON DELETE SET NULL
+);
+CREATE TABLE owner (
+owner_id integer,
+owner_name text,
+owner_type text,
+team_id integer,
+stake integer,
+PRIMARY KEY (owner_id),
+FOREIGN KEY (team_id) REFERENCES team(team_id) ON DELETE SET NULL
+);
+CREATE TABLE player_match (
+playermatch_key bigint,
+match_id integer,
+player_id integer,
+role_desc text,
+team_id integer,
+PRIMARY KEY (playermatch_key),
+FOREIGN KEY (match_id) REFERENCES match(match_id) ON DELETE SET NULL,
+FOREIGN KEY (player_id) REFERENCES player(player_id) ON DELETE SET NULL,
+FOREIGN KEY (team_id) REFERENCES team(team_id) ON DELETE SET NULL
+);
+CREATE TABLE umpire (
+umpire_id integer,
+umpire_name text,
+country_name text,
+PRIMARY KEY (umpire_id)
+);
+CREATE TABLE umpire_match (
+umpirematch_key bigint,
+match_id integer,
+umpire_id integer,
+role_desc text,
+PRIMARY KEY (umpirematch_key),
+FOREIGN KEY (match_id) REFERENCES match(match_id) ON DELETE SET NULL,
+FOREIGN KEY (umpire_id) REFERENCES umpire(umpire_id) ON DELETE SET NULL
+);

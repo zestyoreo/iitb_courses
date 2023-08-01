@@ -1,0 +1,46 @@
+Q)Create an empty table takes2 with the same schema and data as takes but no primary keys or foreign keys.   Find how long it takes the execute the query
+ insert into takes2 select * from takes
+Also, find the query plan for the above insert statement.
+
+Solution:
+to create an empty table takes2 with the same schema and data as takes but without any primary keys or foreign keys using the following SQL command:
+    CREATE TABLE takes2 AS
+    SELECT * FROM takes WHERE 1=0;
+
+Time to exec: Time: 3.492 ms
+
+
+EXPLAIN CREATE TABLE takes2 AS SELECT * FROM takes WHERE 1=0;
+                QUERY PLAN                
+------------------------------------------
+ Result  (cost=0.00..0.00 rows=0 width=0)
+   One-Time Filter: false
+(2 rows)
+
+Time: 0.847 ms
+
+
+EXPLAIN ANALYZE CREATE TABLE takes2 AS SELECT * FROM takes WHERE 1=0;
+                                     QUERY PLAN                                     
+------------------------------------------------------------------------------------
+ Result  (cost=0.00..0.00 rows=0 width=0) (actual time=0.002..0.003 rows=0 loops=1)
+   One-Time Filter: false
+ Planning Time: 0.123 ms
+ Execution Time: 1.532 ms
+(4 rows)
+
+Time: 2.956 ms
+
+
+
+explain analyze insert into takes2 select * from takes;
+                                                   QUERY PLAN                                                   
+----------------------------------------------------------------------------------------------------------------
+ Insert on takes2  (cost=0.00..520.00 rows=0 width=0) (actual time=33.368..33.368 rows=0 loops=1)
+   ->  Seq Scan on takes  (cost=0.00..520.00 rows=30000 width=24) (actual time=0.010..3.518 rows=30000 loops=1)
+ Planning Time: 0.124 ms
+ Execution Time: 33.396 ms
+(4 rows)
+
+Time: 36.617 ms
+

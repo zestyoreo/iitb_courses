@@ -1,0 +1,28 @@
+Q) Create a selection query with an OR of two predicates, whose chosen plan uses an index scan on atleast one or both of the predicates.  You can create indices on appropriate relation attributes to create such a case. 
+
+Solution:
+Here's an example selection query with an OR of two predicates, whose chosen plan uses an index scan on at least one or both of the predicates:
+    SELECT * 
+    FROM section 
+    WHERE building = 'Taylor' OR semester = 'Fall';
+
+
+We can create indices on the age and salary columns to optimize this query. For example, we can create a b-tree index on the age column and another b-tree index on the salary column:
+
+
+explain SELECT * FROM section WHERE building = 'Taylor' OR semester = 'Fall';
+                                      QUERY PLAN                                      
+--------------------------------------------------------------------------------------
+ Seq Scan on section  (cost=0.00..2.50 rows=58 width=28)
+   Filter: (((building)::text = 'Taylor'::text) OR ((semester)::text = 'Fall'::text))
+(2 rows)
+
+
+explain analyze SELECT * FROM section WHERE building = 'Taylor' OR semester = 'Fall';
+                                             QUERY PLAN                                             
+----------------------------------------------------------------------------------------------------
+ Seq Scan on section  (cost=0.00..2.50 rows=58 width=28) (actual time=0.081..0.166 rows=60 loops=1)
+   Filter: (((building)::text = 'Taylor'::text) OR ((semester)::text = 'Fall'::text))
+   Rows Removed by Filter: 40
+ Planning Time: 0.186 ms
+ Execution Time: 0.209 ms

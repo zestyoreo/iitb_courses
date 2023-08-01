@@ -1,0 +1,40 @@
+Q)Create a query where PostgreSQL chooses a merge join (hint: use an order by clause)
+
+Solution:
+Here's an example query that will use a merge join:
+    SELECT *
+    FROM student
+    JOIN takes ON student.ID = takes.ID
+    ORDER BY student.ID;
+
+
+This query joins the student and takes tables and sorts the results by student.ID. 
+By ordering the results this way, PostgreSQL is more likely to use a merge join to efficiently merge the sorted results from each table.
+
+
+explain SELECT *
+    FROM student
+    JOIN takes ON student.ID = takes.ID
+    ORDER BY student.ID;
+                                       QUERY PLAN                                       
+----------------------------------------------------------------------------------------
+ Merge Join  (cost=0.56..2568.55 rows=30000 width=48)
+   Merge Cond: ((student.id)::text = (takes.id)::text)
+   ->  Index Scan using student_pkey on student  (cost=0.28..130.27 rows=2000 width=24)
+   ->  Index Scan using takes_pkey on takes  (cost=0.29..2058.28 rows=30000 width=24)
+(4 rows)
+
+
+explain analyze SELECT *
+    FROM student
+    JOIN takes ON student.ID = takes.ID
+    ORDER BY student.ID;
+                                                             QUERY PLAN                                                              
+-------------------------------------------------------------------------------------------------------------------------------------
+ Merge Join  (cost=0.56..2568.55 rows=30000 width=48) (actual time=0.061..34.556 rows=30000 loops=1)
+   Merge Cond: ((student.id)::text = (takes.id)::text)
+   ->  Index Scan using student_pkey on student  (cost=0.28..130.27 rows=2000 width=24) (actual time=0.016..1.398 rows=2000 loops=1)
+   ->  Index Scan using takes_pkey on takes  (cost=0.29..2058.28 rows=30000 width=24) (actual time=0.032..21.017 rows=30000 loops=1)
+ Planning Time: 0.689 ms
+ Execution Time: 36.418 ms
+(6 rows)

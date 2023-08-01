@@ -1,0 +1,47 @@
+                    Lab Assignment 1
+                    ----------------
+
+Date: 10th January 2023
+
+Submission Date: 4th February 2023, Saturday, 11:59:59pm
+Evaluation Date: 11/12th February 2023, Saturday/Sunday, Laboratory Hours
+ 
+In this assignment,  you have to construct a scanner  and a parser for
+our language that outputs the syntax tree in a graphical form. To draw
+the tree,  use a tool  called graphviz.   There are two  components of
+graphviz that  you will have to  use: The language for  describing the
+tree called DOT and a tool called xdot that displays the tree.
+
+https://www.graphviz.org/pdf/dotguide.pdf tells you how to display a
+tree through dot.
+
+Specifically you have to do the following:
+
+0. Study the examples in the demo very carefully.
+
+1. For the grammar specified as  part of the assignment, first write a
+flex script to  detect tokens.  Test it by  generating a standalone
+scanner  for the  tokens  and  feeding it  programs that conform to
+the given grammar. In the lab hour tomorrow, I shall give you an idea on
+how to generate standalone scanners.
+
+2.  Now  take  the  grammer  itself  and  convert  it  to  a  bison
+script. Link it with the scanner generated earlier (after suitable changes).
+Test it using  the  %debug  directive.   
+
+3.  Study the bison document  supplied along with the assignment to
+find out how actions are added to a bison script.
+
+3.   Read  about  the   DOT  language   from  the   document
+dotguide.pdf
+
+4. Add actions to the bison script so that the output of the parser
+is a DOT script representing the parse tree for a given input program.
+
+5. This  DOT script,  when processed by  the graphviz tool  called xdot
+should display the parse tree for any program.
+
+The parse  tree must exactly  conform to the grammar.   The leafs are to 
+be labelled by lexemes.
+
+5. The xecat deliverables will be specified later.

@@ -1,0 +1,171 @@
+Grammar
+
+    translation_unit: 
+    struct_specifier
+                    | function_definition
+                     | translation_unit struct_specifier
+                    | translation_unit function_definition
+
+     struct_specifier: STRUCT IDENTIFIER '{' declaration_list '}' ';'
+
+     function_definition: type_specifier fun_declarator compound_statement
+
+     type_specifier: VOID
+                   | INT
+                   | FLOAT
+                   | STRUCT IDENTIFIER
+
+    fun_declarator: IDENTIFIER '(' parameter_list ')'
+                  | IDENTIFIER '(' ')'
+
+    parameter_list: parameter_declaration
+                  | parameter_list ',' parameter_declaration
+
+    parameter_declaration: type_specifier declarator
+
+    declarator_arr: IDENTIFIER
+                  | declarator_arr '[' INT_CONSTANT ']'
+
+    declarator: declarator_arr
+              | '*' declarator
+
+    compound_statement: '{' '}'
+                      | '{' statement_list '}'
+                      | '{' declaration_list statement_list '}'
+
+    statement_list: statement
+                  | statement_list statement
+
+    statement: ';'
+             | '{' statement_list '}'
+             | selection_statement
+             | iteration_statement
+             | assignment_statement
+             | procedure_call
+             | RETURN expression ';'
+
+    assignment_expression: unary_expression '=' expression
+
+    assignment_statement: assignment_expression ';'
+
+    procedure_call: IDENTIFIER '(' ')' ';'
+                  | IDENTIFIER '(' expression_list ')' ';'
+
+    expression: logical_and_expression
+              | expression OR_OP logical_and_expression
+
+    logical_and_expression: equality_expression
+                          | logical_and_expression AND_OP equality_expression
+   
+    equality_expression: relational_expression
+                       | equality_expression EQ_OP relational_expression
+                       | equality_expression NE_OP relational_expression
+
+    relational_expression: additive_expression
+                         | relational_expression '<' additive_expression
+                         | relational_expression '>' additive_expression
+                         | relational_expression LE_OP additive_expression
+                         | relational_expression GE_OP additive_expression
+
+    additive_expression: multiplicative_expression
+                       | additive_expression '+' multiplicative_expression
+                       | additive_expression '-' multiplicative_expression
+
+    unary_expression: postfix_expression
+                    | unary_operator unary_expression
+
+    multiplicative_expression: unary_expression
+                             | multiplicative_expression '*' unary_expression
+                             | multiplicative_expression '/' unary_expression
+
+    postfix_expression: primary_expression
+                      | postfix_expression '[' expression ']'
+                      | IDENTIFIER '(' ')'
+                      | IDENTIFIER '(' expression_list ')'
+                      | postfix_expression '.' IDENTIFIER
+                      | postfix_expression PTR_OP IDENTIFIER
+                      | postfix_expression INC_OP
+
+    primary_expression: IDENTIFIER
+                      | INT_CONSTANT
+                      | FLOAT_CONSTANT
+                      | STRING_LITERAL
+                      | '(' expression ')'
+
+    expression_list: expression
+                   | expression_list ',' expression
+
+    unary_operator: '-'
+                  | '!'
+                  | '&'
+                  | '*'
+
+    selection_statement: IF '(' expression ')' statement ELSE statement
+
+    iteration_statement: WHILE '(' expression ')' statement
+                       | FOR '(' assignment_expression ';' expression ';' assignment_expression ')' statement
+
+    declaration_list: declaration
+                    | declaration_list declaration
+
+    declaration: type_specifier declarator_list ';'
+
+    declarator_list: declarator
+                    | declarator_list ',' declarator
+
+
+----------------------------------------------
+
+Identifier are: A single letter or _  followed by 0 or more letters or
+_ or digits.
+
+A description of integer and float constants. Not part of the grammar.  
+
+Numeric constants are defined as: 
+
+C-constant:
+  C-integer-constant
+  floating-point-constant
+ 
+C-integer-constant:
+  [1-9][0-9]*
+  0[bB][01]*
+  0[0-7]*
+  0[xX][0-9a-fA-F]*
+ 
+floating-point-constant:
+  integer-part.[fractional-part ][exponent-part ]
+
+integer-part:
+  [0-9]*
+ 
+fractional-part:
+  [0-9]*
+ 
+exponent-part:
+  [eE][+-][0-9]*
+  [eE][0-9]*
+
+The rule given above is not entirely accurate. Correct it on the basis of the following examples:
+
+1.
+23.1
+01.456
+12.e45
+12.45e12
+12.45e-12
+12.45e+12
+
+The following are not examples of FLOAT_CONSTANTs:
+
+234
+.
+
+We have not defined STRING_LITERALs. For our purpose, these are
+sequence of characters enclosed within a pair of ". If the enclosed
+sequence contains \ and ", they must be preceded with a \. Apart from
+\and ", the only other character that can follow a \ within a string
+are t and n. 
+
+
+

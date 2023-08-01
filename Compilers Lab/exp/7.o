@@ -1,0 +1,9 @@
+_Z1pv:
+        pushl   %ebp
+        movl    %esp, %ebp
+        subl    $32, %esp
+        movl    -8(%ebp), %eax
+        movl    %eax, -4(%ebp)
+        nop
+        leave
+        ret

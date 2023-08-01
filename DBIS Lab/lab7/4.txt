@@ -1,0 +1,36 @@
+Q) Create a query where PostgreSQL chooses a (plain) index nested loops join 
+(NOTE: PostgreSQL uses nested loops join even for indexed nested loops join.  The nested loops operator has 2 children.  The first child is the outer input, and it may have an index scan or anything else, that is irrelevant.  The second child must have an index scan or bitmap index scan, using an attribute from the first child.)
+
+Solution:
+Here's an example query where PostgreSQL would choose a plain index nested loops join:
+    SELECT *
+    FROM student s
+    JOIN takes t ON s.ID = t.ID
+    WHERE s.dept_name = 'Computer Science';
+
+
+explain SELECT * FROM student s JOIN takes t ON s.ID = t.ID WHERE s.dept_name = 'Computer Science';
+                                   QUERY PLAN                                   
+--------------------------------------------------------------------------------
+ Nested Loop  (cost=4.40..92.99 rows=15 width=48)
+   ->  Seq Scan on student s  (cost=0.00..40.00 rows=1 width=24)
+         Filter: ((dept_name)::text = 'Computer Science'::text)
+   ->  Bitmap Heap Scan on takes t  (cost=4.40..52.84 rows=15 width=24)
+         Recheck Cond: ((id)::text = (s.id)::text)
+         ->  Bitmap Index Scan on takes_pkey  (cost=0.00..4.40 rows=15 width=0)
+               Index Cond: ((id)::text = (s.id)::text)
+
+
+explain analyze SELECT * FROM student s JOIN takes t ON s.ID = t.ID WHERE s.dept_name = 'Computer Science';
+                                                QUERY PLAN                                                 
+-----------------------------------------------------------------------------------------------------------
+ Nested Loop  (cost=4.40..92.99 rows=15 width=48) (actual time=0.528..0.529 rows=0 loops=1)
+   ->  Seq Scan on student s  (cost=0.00..40.00 rows=1 width=24) (actual time=0.527..0.527 rows=0 loops=1)
+         Filter: ((dept_name)::text = 'Computer Science'::text)
+         Rows Removed by Filter: 2000
+   ->  Bitmap Heap Scan on takes t  (cost=4.40..52.84 rows=15 width=24) (never executed)
+         Recheck Cond: ((id)::text = (s.id)::text)
+         ->  Bitmap Index Scan on takes_pkey  (cost=0.00..4.40 rows=15 width=0) (never executed)
+               Index Cond: ((id)::text = (s.id)::text)
+ Planning Time: 0.752 ms
+ Execution Time: 0.611 ms

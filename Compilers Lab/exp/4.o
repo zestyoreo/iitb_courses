@@ -1,0 +1,11 @@
+f:
+        pushl   %ebp
+        movl    %esp, %ebp
+        subl    $16, %esp
+        movl    8(%ebp), %edx
+        movl    -4(%ebp), %eax
+        addl    %edx, %eax
+        movl    %eax, -8(%ebp)
+        nop
+        leave
+        ret

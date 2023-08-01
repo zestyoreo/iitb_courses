@@ -1,0 +1,38 @@
+When executing the commands listed above, we first start a new transaction using the "begin;" command. This instructs PostgreSQL to not commit any SQL statement immediately after it is submitted.
+
+Next, we select all rows from the "student" table where the name is equal to 'Tanaka' using the SQL statement "select * from student where name = 'Tanaka';". If there is at least one row that meets this condition, it will be returned in the query result.
+
+Following that, we execute the SQL statement "delete from student where name = 'Tanaka';" to delete all rows from the "student" table where the name is equal to 'Tanaka'.
+
+After deleting the rows, we again select all rows from the "student" table where the name is equal to 'Tanaka' using the SQL statement "select * from student where name = 'Tanaka';". However, this time, the query result will be empty since we have just deleted all the rows that meet the condition.
+
+Next, we issue a "rollback;" command, which instructs PostgreSQL to undo all the changes made in the current transaction. Since we have just deleted all the rows that meet the condition, PostgreSQL will restore them back to the table.
+
+Finally, we execute the SQL statement "select * from student where name = 'Tanaka';" again. This time, we should see the same rows as before the deletion since the rollback undid the deletion.
+
+Overall, we observed that PostgreSQL did not commit any SQL statement immediately after it was submitted due to the "begin;" command. Instead, it waited for further instructions on whether to commit or rollback the transaction. The rollback command undid all the changes made in the transaction and restored the original state of the table.
+
+
+Output:
+lab9db=# begin ;
+BEGIN
+lab9db=*# select * from student where name = 'Tanaka';
+  id   |  name  | dept_name | tot_cred 
+-------+--------+-----------+----------
+ 98988 | Tanaka | Biology   |      120
+(1 row)
+
+lab9db=*# delete from student where name = 'Tanaka';
+DELETE 1
+lab9db=*# select * from student where name = 'Tanaka';
+ id | name | dept_name | tot_cred 
+----+------+-----------+----------
+(0 rows)
+
+lab9db=*# rollback;
+ROLLBACK
+lab9db=# select * from student where name = 'Tanaka';
+  id   |  name  | dept_name | tot_cred 
+-------+--------+-----------+----------
+ 98988 | Tanaka | Biology   |      120
+(1 row)

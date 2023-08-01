@@ -1,0 +1,9 @@
+Q)Next measure the time it takes to modify takes2 by using alter table to add the primary key constraint. 
+
+Solution:
+
+ALTER TABLE takes2 ADD PRIMARY KEY (id);
+    ERROR:  could not create unique index "takes2_pkey"
+    DETAIL:  Key (id)=(75510) is duplicated.
+    Time: 64.267 ms
+

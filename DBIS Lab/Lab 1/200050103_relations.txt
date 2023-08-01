@@ -1,0 +1,26 @@
+CS 387 - Lab 1
+
+Q1. π name student ∪ π name instructor
+    select name from student union select name from instructor;
+
+Q2. π c.course_id, c.title, t.ID σ c.course_id = t.course_id ( ρ c course ⨯ ρ t teaches )
+    select distinct c.course_id, c.title, t.id from course as c, teaches as t where c.course_id=t.course_id;
+
+Q3. π ID, name, salary σ salary < 75000 instructor
+    select id, name, salary from instructor where salary<75000;
+
+Q4. π i.dept_name, count γ i.dept_name; COUNT(i.dept_name)→count ρ i instructor
+    select i.dept_name,count(i.dept_name) as count from instructor as i group by i.dept_name;
+
+Q5. π c.title, c.course_id, p.prereq_id σ c.course_id = p.course_id ( ρ c course ⨯ ρ p prereq )
+    select c.title, c.course_id, p.prereq_id from course as c,prereq as p where c.course_id=p.course_id;
+
+Q6. select i.name from instructor as i cross join department as d where (d.dept_name=i.dept_name) and (d.budget<10*i.salary);
+
+Q7. select distinct i.dept_name from department as i where i.building in (select building from department group by building having count(*)>1);
+
+Q8. select i.dept_name,count(i.dept_name)*5000 as income from student as i group by i.dept_name;
+
+Q9. select i.id from instructor as i except (select a.i_id from advisor as a,instructor as i where a.i_id=i.id union select t.id from teaches as t, instructor as i where t.id=i.id);
+
+Q10. select t.id, s.name from takes as t, student as s, course as c where s.id=t.id and t.course_id=c.course_id and c.dept_name='Comp. Sci.' intersect select t.id, s.name from takes as t, student as s, course as c where s.id=t.id and t.course_id=c.course_id and c.dept_name='Biology';
